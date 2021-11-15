@@ -1,0 +1,47 @@
+*{
+  padding : 0px;
+  margin: 0px;
+}
+h1{
+  color: blue;
+}
+body,html,.containers{
+  min-height: 100% !important;
+  height: 100%;
+}
+/*style admin*/
+/*.containers{
+  background-color: red;
+}*/
+.sidebar{
+  width: 20%;  
+  background-color: #555;
+  height: 100%;
+  float: left;
+  position: fixed;
+  color: white;
+}
+.sidebar h3{
+  text-align: center;
+}
+.content{
+  width: 80%;
+  height: 100%;
+  background-color: white;
+  float: right;
+}
+.content .head{
+  height: 10%;
+  /*background-color: black;*/
+ 
+}
+.content .head h4{
+   margin-top:auto;
+  margin-bottom:auto;
+  text-align: right;
+  margin-right:40px;
+}
+.content .body{
+  height: 90%;
+  background-color: #333;
+}
