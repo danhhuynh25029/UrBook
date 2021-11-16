@@ -15,22 +15,28 @@ class AdminController extends Controller
     }
     public function getOrder(){
         // Danh sach cac hoa don
-        return view('admin/content',['content'=>'Danh sach hoa don']);
+        return view('admin/orders',['content'=>'Danh sach hoa don']);
     }
     public function getProduct(){
         // danh sach cac san pham hien co tai shop
-        return "Danh sach san pham";
+        return view('admin/products',['content'=>'Danh sach san pham']);
     }
     public function getUser(){
         // noi chua cac khac hang da dat mua o trang web
-        return "Danh sach khach hang";
+        return view('admin/users',['content'=>'Danh sach khach hang']);
     }
     public function getMember(){
         // nhan vien de theo don hang
-        return "Danh sach nhan vien truc page";
+        return view('admin/members',['content'=>'Danh sach nhan vien truc page']);
     }
     public function getCategory(){
         // muc dinh tao them neu co the laoi sach moi
-        return "Danh sach the loai sach";
+        return view('admin/categories',['content'=>'Danh sach the loai sach']);
+    }
+    public function getInfor(){
+        return view('admin/infors',['content'=>'Cap nhat thong tin shop tren website']);
+    }
+    public function getCode(){
+        return view('admin/code',['content'=>'Danh sach ma giam gia']);
     }
 }

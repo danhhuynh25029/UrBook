@@ -10,33 +10,41 @@
 <body>
 <div class="containers">
     <div class="sidebar">
-      <h3>UrBook</h3>
+      <h3><a href="{{ route('home')}}">UrBook</a></h3>
+      
       <ul class="nav">
+          
           <li class="nav-item">
-            <a class="nav-link" href="{{route('admin.orders')}}">Danh sách hóa dơn</a>
+            <a class="nav-link" href="{{route('admin.orders')}}">Danh sách sách hóa đơn</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{{route('admin.users')}}">Danh sách khách hàng</a>
+            <a class="nav-link" href="{{route('admin.users')}}">Xem khách hàng</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{{route('admin.products')}}">Danh sách sản phẩm</a>
+            <a class="nav-link" href="{{route('admin.products')}}">Sản phẩm phẩm hiện có</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{{route('admin.members')}}">Danh sách nhân viên</a>
+            <a class="nav-link" href="{{route('admin.members')}}">Xem nhân viên</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{{route('admin.categories')}}">Danh sách thể loại</a>
+            <a class="nav-link" href="{{route('admin.categories')}}">Tất cả thể loại</a>
+          </li>
+          <li class="nav-item">
+            <a  class="nav-link" href="{{route('admin.infors')}}">Cập nhật thông tin web</a>
+          </li>
+          <li class="nav-item">
+            <a href="{{ route('admin.code')}}" class="nav-link">Danh sách mã giảm giá</a>
           </li>
     </ul>
     </div>
     <div class="content">
-      <div class="container-fluid">
-        <ul class="nav justify-content-end">
-          <li><a href="#">Danh Huynh</a></li>
-        </ul>
+      <div class="head">
+         <h5><a href="{{route('admin')}}">Danh Huynh</a></h5>
       </div>
+      <div class="body">
       <div class="container-fluid">
       @yield('content')
+      </div>
       {{-- <h1>Simple Sidebar</h1> --}}
       {{-- <p>
         Make sure to keep all page content within the 

@@ -16,8 +16,8 @@ use App\Http\Controllers\AdminController;
 */
 // Dieu huong tranh chu
 Route::prefix('/')->group(function(){
-    Route::get('/home',[HomeController::class,'homePage']);
-    Route::get('/user',[HomeController::class,'userInfor']);
+    Route::get('/home',[HomeController::class,'homePage'])->name('home');
+    Route::get('/user',[HomeController::class,'userInfor'])->name('user');
 });
 // dieu huong trang admin
 Route::prefix('admin')->group(function(){
@@ -27,6 +27,8 @@ Route::prefix('admin')->group(function(){
     Route::get('/members',[AdminController::class,'getMember'])->name('admin.members');
     Route::get('/products',[AdminController::class,'getProduct'])->name('admin.products');
     Route::get('/categories',[AdminController::class,'getCategory'])->name('admin.categories');
+    Route::get('/infors',[AdminController::class,'getInfor'])->name('admin.infors');
+    Route::get('/code',[AdminController::class,'getCode'])->name('admin.code');
 });
 // Route::prefix('user')->group(function(){
 //     Route::get('/',[])
