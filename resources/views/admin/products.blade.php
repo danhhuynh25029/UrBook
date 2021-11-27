@@ -17,7 +17,9 @@
       <td><img src="https://salt.tikicdn.com/cache/400x400/ts/product/83/30/87/737846efdb9f28f0f51352cacf9225c5.jpg.webp" class="img-thumbnail" alt="..." style="width:100px;height: 100px;"></td>
       <td>Lâu tình ái</td>
       <td>20.000vnđ</td>
-      <td>2</td>
+      <td>
+        <input type="number" name="">
+      </td>
       <td><a href="#">Chi tiết</a></td>
     </tr>
     <tr>
