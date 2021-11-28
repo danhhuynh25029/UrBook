@@ -16,18 +16,44 @@
     <header>
         <!-- navbar-brand and search option -->
         <div class="container-fluid p-0">
-            <nav class="navbar navbar-expand-lg">
-                <div class="container-fluid">
-                    <a class="navbar-brand" href="#">
-                        <i class="fas fa-book-reader fa-2x mx-3"></i>Books</a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                  </button>
-                    <form class="d-flex">
-                        <input class="form-control me-2" type="search" placeholder="Nhập sách cần tìm kiếm..." aria-label="Search">
-                        <button class="btn btn-outline-success" type="submit">
-                            <i class="fas fa-search justify-content-center"></i></button>
-                    </form>
+            <nav class="navbar navbar-expand-lg d-flex justify-content-between">
+                <a class="navbar-brand" href="#">
+                    <i class="fas fa-book-reader fa-2x mx-3"></i>Books</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="fas fa-align-right text-light"></i>
+                </button>
+
+                <form class="form-inline my-2 my-lg-0">
+                    <div class="col pl-0">
+                        <div class="input-group search-form pr-5">
+                            <input type="text" class="form-control text-black-50" id="inlineFormInputGroupUsername2" placeholder="Nhập sách cần tìm kiếm...">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">
+                                    <i class="fas fa-search"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <div class="mr-auto"></div>
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="fas fa-cart-arrow-down pr-2"></i> Giỏ hàng</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <div class="dropdown">
+                                <a class="nav-link" href="#">
+                                    <i class="fas fa-user pr-2"></i>Tài khoản</a>
+                                <div class="dropdown-content">
+                                    <a href="#">Đăng nhập</a>
+                                    <a href="#">Đăng ký</a>
+                                </div>
+                            </div>
+                            <li/>
+                    </ul>
                 </div>
             </nav>
         </div>
@@ -54,18 +80,6 @@
                                     <a href="#">Sách Khoa Học - Triết Học</a>
                                     <a href="#">Sách Tâm Linh - Tôn Giáo</a>
                                     <a href="#">Sách Y Học - Thực Dưỡng</a>
-                                </div>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Trang chủ</a>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <div class="dropdown">
-                                    <a href="#" class="nav-link">Tài khoản</a>
-                                    <div class="dropdown-content">
-                                        <a href="#">Đăng Nhập</a>
-                                        <a href="#">Đăng ký</a>
-                                    </div>
                                 </div>
                             </li>
                             <li class="nav-item dropdown">
@@ -98,85 +112,283 @@
                     <button class="btn btn-light px-5 py-2">Mua ngay chỉ với 55.000đ</button>
                 </div>
                 <div class="col-md-5 col-sm-12 h-25">
-                    <img src="./assets/css/img/mat-biec.jpg" alt="">
+                    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="./assets/css/img/mat-biec-mt (1).jpg" class="d-block w-100" alt="...">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="./assets/css/img/mat-biec-ms (1).jpg" class="d-block w-100 h-90" alt="...">
+                            </div>
+                            <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Next</span>
+                            </a>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
     </header>
 
     <main>
-        <section class="section-1 d-flex">
-            <div class="col-md-6 col-sm-12 text-left">
-                <h1>SÁCH MỚI TUYỂN CHỌN</h1>
-            </div>
-            <div class="col-md-6 col-sm-12 text-right">
-                <button class="btn btn-warning">Xem tất cả</button>
+        <section class="section-1 d-flex px-5 py-2">
+            <div class="container">
+                <div class="content bg-white" style="width: 100%;">
+                    <div class="col-12 d-flex justify-content-between align-items-center pb-2">
+                        <h1>SÁCH MỚI TUYỂN CHỌN</h1>
+                        <a href="#" class="btn btn-warning text-white">Xem tất cả</a>
+                    </div>
+                </div>
+                <div class="block-product d-flex">
+                    <div class="card mr-2 d-inline-block shadow-lg">
+                        <div class="card-img-top">
+                            <img src="./assets/css/img/lap-ke-hoach-kinh-doanh-hieu-qua-mt.jpg" alt="Books" class="img-fluid">
+                        </div>
+                        <div class="card-body">
+                            <h3 class="card-title">Lập kế hoạch kinh doanh hiệu quả</h3>
+                            <p class="card-author">Brian Finch</p>
+                            <p class="card-price">111.000đ</p>
+                        </div>
+                    </div>
+                    <div class="card mr-2 d-inline-block shadow-lg">
+                        <div class="card-img-top">
+                            <img src="./assets/css/img/lap-ke-hoach-kinh-doanh-hieu-qua-mt.jpg" alt="Books" class="img-fluid">
+                        </div>
+                        <div class="card-body">
+                            <h3 class="card-title">Lập kế hoạch kinh doanh hiệu quả</h3>
+                            <p class="card-author">Brian Finch</p>
+                            <p class="card-price">111.000đ</p>
+                        </div>
+                    </div>
+                    <div class="card mr-2 d-inline-block shadow-lg">
+                        <div class="card-img-top">
+                            <img src="./assets/css/img/lap-ke-hoach-kinh-doanh-hieu-qua-mt.jpg" alt="Books" class="img-fluid">
+                        </div>
+                        <div class="card-body">
+                            <h3 class="card-title">Lập kế hoạch kinh doanh hiệu quả</h3>
+                            <p class="card-author">Brian Finch</p>
+                            <p class="card-price">111.000đ</p>
+                        </div>
+                    </div>
+                    <div class="card mr-2 d-inline-block shadow-lg">
+                        <div class="card-img-top">
+                            <img src="./assets/css/img/lap-ke-hoach-kinh-doanh-hieu-qua-mt.jpg" alt="Books" class="img-fluid">
+                        </div>
+                        <div class="card-body">
+                            <h3 class="card-title">Lập kế hoạch kinh doanh hiệu quả</h3>
+                            <p class="card-author">Brian Finch</p>
+                            <p class="card-price">111.000đ</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
-        <div class="team row">
-            <div class="col-md-4 col-12">
-                <div class="card mr-2 d-inline-block shadow-lg">
-                    <div class="card-img-top">
-                        <img src="./assets/css/img/lap-ke-hoach-kinh-doanh-hieu-qua-mt.jpg" alt="Books" class="img-fluid">
-                    </div>
-                    <div class="card-body">
-                        <h3 class="card-title">Lập kế hoạch kinh doanh hiệu quả</h3>
-                        <p class="card-author">Brian Finch</p>
-                        <p class="card-price">111.000đ</p>
-                        <p class="card-rate">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i> 0 nhận xét
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 col-12">
-                <div class="card mr-2 d-inline-block shadow-lg">
-                    <div class="card-img-top">
-                        <img src="./assets/css/img/lap-ke-hoach-kinh-doanh-hieu-qua-mt.jpg" alt="Books" class="img-fluid">
-                    </div>
-                    <div class="card-body">
-                        <h3 class="card-title">Lập kế hoạch kinh doanh hiệu quả</h3>
-                        <p class="card-author">Brian Finch</p>
-                        <p class="card-price">111.000đ</p>
-                        <p class="card-rate">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i> 0 nhận xét
-                        </p>
-                    </div>
-                </div>
-            </div>
 
-            <div class="col-md-4 col-12">
-                <div class="card mr-2 d-inline-block shadow-lg">
-                    <div class="card-img-top">
-                        <img src="./assets/css/img/lap-ke-hoach-kinh-doanh-hieu-qua-mt.jpg" alt="Books" class="img-fluid">
+        <section class="section-2 d-flex px-5 py-2 bg-light">
+            <div class="container">
+                <div class="content bg-white" style="width: 100%;">
+                    <div class="col-12 d-flex justify-content-between align-items-center pb-2">
+                        <h1>COMBO SÁCH HOT - GIẢM ĐẾN 25%</h1>
+                        <a href="#" class="btn btn-warning text-white">Xem tất cả</a>
                     </div>
-                    <div class="card-body">
-                        <h3 class="card-title">Lập kế hoạch kinh doanh hiệu quả</h3>
-                        <p class="card-author">Brian Finch</p>
-                        <p class="card-price">111.000đ</p>
-                        <p class="card-rate">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i> 0 nhận xét
-                        </p>
+                </div>
+                <div class="block-product d-flex">
+                    <div class="card mr-2 d-inline-block shadow-lg">
+                        <div class="card-img-top">
+                            <img src="./assets/css/img/lap-ke-hoach-kinh-doanh-hieu-qua-mt.jpg" alt="Books" class="img-fluid">
+                        </div>
+                        <div class="card-body">
+                            <h3 class="card-title">Lập kế hoạch kinh doanh hiệu quả</h3>
+                            <p class="card-author">Brian Finch</p>
+                            <p class="card-price">111.000đ</p>
+                        </div>
+                    </div>
+                    <div class="card mr-2 d-inline-block shadow-lg">
+                        <div class="card-img-top">
+                            <img src="./assets/css/img/lap-ke-hoach-kinh-doanh-hieu-qua-mt.jpg" alt="Books" class="img-fluid">
+                        </div>
+                        <div class="card-body">
+                            <h3 class="card-title">Lập kế hoạch kinh doanh hiệu quả</h3>
+                            <p class="card-author">Brian Finch</p>
+                            <p class="card-price">111.000đ</p>
+                        </div>
+                    </div>
+                    <div class="card mr-2 d-inline-block shadow-lg">
+                        <div class="card-img-top">
+                            <img src="./assets/css/img/lap-ke-hoach-kinh-doanh-hieu-qua-mt.jpg" alt="Books" class="img-fluid">
+                        </div>
+                        <div class="card-body">
+                            <h3 class="card-title">Lập kế hoạch kinh doanh hiệu quả</h3>
+                            <p class="card-author">Brian Finch</p>
+                            <p class="card-price">111.000đ</p>
+                        </div>
+                    </div>
+                    <div class="card mr-2 d-inline-block shadow-lg">
+                        <div class="card-img-top">
+                            <img src="./assets/css/img/lap-ke-hoach-kinh-doanh-hieu-qua-mt.jpg" alt="Books" class="img-fluid">
+                        </div>
+                        <div class="card-body">
+                            <h3 class="card-title">Lập kế hoạch kinh doanh hiệu quả</h3>
+                            <p class="card-author">Brian Finch</p>
+                            <p class="card-price">111.000đ</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-3 d-flex px-5 py-2">
+            <div class="container">
+                <div class="content bg-white" style="width: 100%;">
+                    <div class="col-12 d-flex justify-content-between align-items-center pb-2">
+                        <h1>SÁCH SẮP PHÁT HÀNH/ĐẶT TRƯỚC</h1>
+                        <a href="#" class="btn btn-warning text-white">Xem tất cả</a>
+                    </div>
+                </div>
+                <div class="block-product d-flex">
+                    <div class="card mr-2 d-inline-block shadow-lg">
+                        <div class="card-img-top">
+                            <img src="./assets/css/img/lap-ke-hoach-kinh-doanh-hieu-qua-mt.jpg" alt="Books" class="img-fluid">
+                        </div>
+                        <div class="card-body">
+                            <h3 class="card-title">Lập kế hoạch kinh doanh hiệu quả</h3>
+                            <p class="card-author">Brian Finch</p>
+                            <p class="card-price">111.000đ</p>
+                        </div>
+                    </div>
+                    <div class="card mr-2 d-inline-block shadow-lg">
+                        <div class="card-img-top">
+                            <img src="./assets/css/img/lap-ke-hoach-kinh-doanh-hieu-qua-mt.jpg" alt="Books" class="img-fluid">
+                        </div>
+                        <div class="card-body">
+                            <h3 class="card-title">Lập kế hoạch kinh doanh hiệu quả</h3>
+                            <p class="card-author">Brian Finch</p>
+                            <p class="card-price">111.000đ</p>
+                        </div>
+                    </div>
+                    <div class="card mr-2 d-inline-block shadow-lg">
+                        <div class="card-img-top">
+                            <img src="./assets/css/img/lap-ke-hoach-kinh-doanh-hieu-qua-mt.jpg" alt="Books" class="img-fluid">
+                        </div>
+                        <div class="card-body">
+                            <h3 class="card-title">Lập kế hoạch kinh doanh hiệu quả</h3>
+                            <p class="card-author">Brian Finch</p>
+                            <p class="card-price">111.000đ</p>
+                        </div>
+                    </div>
+                    <div class="card mr-2 d-inline-block shadow-lg">
+                        <div class="card-img-top">
+                            <img src="./assets/css/img/lap-ke-hoach-kinh-doanh-hieu-qua-mt.jpg" alt="Books" class="img-fluid">
+                        </div>
+                        <div class="card-body">
+                            <h3 class="card-title">Lập kế hoạch kinh doanh hiệu quả</h3>
+                            <p class="card-author">Brian Finch</p>
+                            <p class="card-price">111.000đ</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+        <section class="section-4 mt-5 pt-5 bg-light">
+            <div class="container text-center">
+                <div class="method">
+                    <h2><b>QUY TRÌNH LÀM VIỆC</b></h2>
+                </div>
+                <div class="d-flex justify-content-center">
+                    <div class="card border-0 d-inline-block">
+                        <div class="card-img-top">
+                            <img src="./assets/css/img/banner03-01.png" alt="Books" class="img-fluid">
+                        </div>
+                        <div class="card-body">
+                            <h3 class="card-title">Nhận đơn hàng</h3>
+                            <p class="card-content">Đơn hàng sẽ được gửi về bộ phận quản lý khi người dùng cung cấp thông tin cơ bản và bấm mua sách</p>
+                        </div>
+                    </div>
+                    <div class="card border-0 d-inline-block">
+                        <div class="card-img-top">
+                            <img src="./assets/css/img/banner03-02.png" alt="Books" class="img-fluid">
+                        </div>
+                        <div class="card-body">
+                            <h3 class="card-title">Đóng gói</h3>
+                            <p class="card-content">Sách của bạn sẽ được đóng gói bao bì cẩn thận để hạn chế hư hỏng trong quá trình vận chuyển</p>
+                        </div>
+                    </div>
+                    <div class="card border-0 d-inline-block">
+                        <div class="card-img-top">
+                            <img src="./assets/css/img/banner03-03.png" alt="Books" class="img-fluid">
+                        </div>
+                        <div class="card-body">
+                            <h3 class="card-title">Chuyển hàng</h3>
+                            <p class="card-content">Sách của bạn sẽ được giao cho bộ phận chuyển phát nhanh để được giao trong thời gian sớm nhất</p>
+                        </div>
+                    </div>
+                    <div class="card border-0 d-inline-block">
+                        <div class="card-img-top">
+                            <img src="./assets/css/img/banner03-04.png" alt="Books" class="img-fluid">
+                        </div>
+                        <div class="card-body">
+                            <h3 class="card-title">Thanh toán</h3>
+                            <p class="card-content">Có 2 phương thức thanh toán chính là thanh toán bằng tiền mặt khi hàng đến tận tay hoặc chuyển khoản qua ngân hàng</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container-fluid p-0">
+            <div class="row text-left">
+                <div class="col-md-5 col-sm-5">
+                    <h4 class="text-light">About us</h4>
+                    <p class="text-muted">
+                        <i class="fas fa-home"></i> Địa chỉ: 69 Trần Duy Hưng, Hà Nội
+                    </p>
+                    <p class="text-muted">
+                        <i class="fas fa-mail-bulk"></i> Email: depzaikobaogiosai@gmail.com
+                    </p>
+                    <p class="text-muted">
+                        <i class="fas fa-phone"></i> SDT: 0969696969
+                    </p>
+                    <p class="text-muted">
+                        <i class="fas fa-clock"></i> Thời gian làm việc: 7h sáng - 10h tối
+                    </p>
+                </div>
+                <div class="col-md-5 col-sm-12">
+                    <h4 class="text-light">
+                        Subscribe to our website
+                    </h4>
+                    <form class="form-inline">
+                        <div class="col pl-0">
+                            <div class="input-group pr-5">
+                                <input type="text" class="form-control bg-dark text-white" id="inlineFormInputGroupUsername2" placeholder="Email">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <i class="fas fa-arrow-right"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-md-2 col-sm-12">
+                    <h4 class="text-light">Follow Us</h4>
+                    <p class="text-muted">Let us be social</p>
+                    <div class="column text-light">
+                        <i class="fab fa-facebook-f"></i>
+                        <i class="fab fa-instagram"></i>
+                        <i class="fab fa-twitter"></i>
+                        <i class="fab fa-youtube"></i>
                     </div>
                 </div>
             </div>
         </div>
-    </main>
-
-    <footer>
-
     </footer>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>

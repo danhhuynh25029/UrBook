@@ -1,0 +1,78 @@
+@import url("https://fonts.googleapis.com/css?family=Acme|Lobster|Patua+One|Rubik|Sniglet");
+* {
+    box-sizing: border-box;
+}
+
+header,
+section {
+    overflow-x: hidden;
+}
+
+:root {
+    --Sniglet-font: "Sniglet", cursive;
+    --Rubik: "Rubik", cursive;
+    --Patua: "Patua One", cursive;
+    --Lobster: "lobster", cursive;
+    --light-black: #2e2c2caf;
+    --bggradient: linear-gradient(to bottom, #0099cc, #f4fffd);
+    --light-gray: rgba(255, 255, 255, 0.877);
+}
+
+header a {
+    font-family: sans-serif;
+    font-size: 0.9em;
+    color: whitesmoke;
+}
+
+header .form-inline {
+    text-align: center;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 2px 15px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+header .nav-item:last-child {
+    padding-right: 10.5em;
+}
+
+header .nav-item {
+    padding: 0.9em;
+}
+
+header .navbar-brand {
+    padding-left: 8rem;
+}
+
+header .nav-link:hover {
+    color: black;
+}
+
+header .navbar-nav {
+    padding-left: -10rem;
+}
+
+header {
+    background: #24ddce;
+    background: var(--bggradient);
+}
