@@ -11,7 +11,7 @@ class HomeController extends Controller
     }
     public function homePage(){
         // hien thi trang chu
-        return 'Trang chu';
+        return  view('home/home');
     }
     public function userInfor(){
         return "Thong tin user";
@@ -23,5 +23,11 @@ class HomeController extends Controller
     public function getProduct($id){
         // chi tiet san pham
         return 'San pham '.$id;
+    }
+    public function SignIn(){
+        return  view('login/signin');
+    }
+    public function SignUp(){
+        return view('login/signup');
     }
 }

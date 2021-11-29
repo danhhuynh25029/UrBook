@@ -1,14 +1,15 @@
 @extends('admin/admin')
 @section('content')
-<button type="button" class="btn btn-primary">Thêm</button>
+
 <form class="d-flex">
+      <button type="button" class="btn btn-primary">Thêm</button>
       <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
       <button class="btn btn-outline-success" type="submit">Search</button>
 </form>
 <table class="table">
   <thead>
     <tr>
-      <th scope="col">#</th>
+      <th scope="col">STT</th>
       <th scope="col">Họ và Tên</th>
       <th scope="col">Tài khoản</th>
       <th scope="col">Mật khẩu</th>

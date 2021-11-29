@@ -3,7 +3,7 @@
 <table class="table">
   <thead>
     <tr>
-      <th scope="col">#</th>
+      <th scope="col">STT</th>
       <th scope="col">Mã</th>
       <th scope="col">Số lượng</th>
       <th scope="col">Giá trị</th>

@@ -4,7 +4,7 @@
 <table class="table">
   <thead>
     <tr>
-      <th scope="col">#</th>
+      <th scope="col">STT</th>
       <th scope="col">Người mua</th>
       <th scope="col">Ngày xuất hóa đơn</th>
       <th scope="col">Trạng thái</th>

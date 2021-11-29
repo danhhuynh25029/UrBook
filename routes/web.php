@@ -18,6 +18,8 @@ use App\Http\Controllers\AdminController;
 Route::prefix('/')->group(function(){
     Route::get('/home',[HomeController::class,'homePage'])->name('home');
     Route::get('/user',[HomeController::class,'userInfor'])->name('user');
+    Route::get('/signin',[HomeController::class,'SignIn'])->name('signin');
+    Route::get('/signup',[HomeController::class,'SignUp'])->name('signup');
 });
 // dieu huong trang admin
 Route::prefix('admin')->group(function(){

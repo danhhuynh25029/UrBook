@@ -3,7 +3,7 @@
 <table class="table">
   <thead>
     <tr>
-      <th scope="col">#</th>
+      <th scope="col">STT</th>
       <th scope="col">Ảnh minh họa</th>
       <th scope="col">Tên Sản phẩm</th>
       <th scope="col">Giá</th>

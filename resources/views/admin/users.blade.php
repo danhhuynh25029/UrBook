@@ -3,7 +3,7 @@
 <table class="table">
   <thead>
     <tr>
-      <th scope="col">#</th>
+      <th scope="col">STT</th>
       <th scope="col">Tên</th>
       <th scope="col">Ngày tham gia</th>
       <th scope="col">Hóa đơn</th>

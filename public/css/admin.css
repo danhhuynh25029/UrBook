@@ -71,3 +71,10 @@ margin-top: 10px;
 /*background-color: white;*/
 width: 95%;
 }
+.d-flex{
+  display: inline-block;
+}
+.form-control{
+  margin-left: 70%;
+  width: 30% !important;
+}

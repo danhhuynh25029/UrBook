@@ -28,6 +28,9 @@
           <li class="nav-item">
             <a class="nav-link" href="{{route('admin.categories')}}">Tất cả thể loại</a>
           </li>
+      {{--     <li class="nav-item">
+            <a class="nav-link" href="{{ route('admin.contact')}}">Tất cả liên hệ</a>
+          </li> --}}
           <li class="nav-item">
             <a  class="nav-link" href="{{route('admin.infors')}}">Cập nhật thông tin</a>
           </li>
