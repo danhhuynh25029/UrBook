@@ -1,0 +1,73 @@
+*{
+    padding: 0px;
+    margin: 0px;
+}
+i{
+    margin-right: 5px;
+}
+body{
+    background-color: rgb(228, 226, 226) !important;
+    /* height: 100%;
+    min-height: 100%;
+    position: relative; */
+}
+/* style header ne */
+.header{
+    background-color: #079992;
+    color: white;
+   
+}
+.header nav{
+    height: 50px;
+    line-height: 50px;
+}
+.header a{
+    color: white;
+}   
+/* style body ne */
+/* categories */
+.body .categories{
+    border-right: 1px solid rgb(240, 237, 237) ;
+}
+.body .categories .list ul{
+   list-style: none;
+}
+.body .categories h3{
+    text-align: center;
+    margin-top: 10px;
+}
+.body .categories .list ul li{
+    height: 30px;
+    line-height: 30px;
+    margin-left: 10px;
+}
+.body{
+    border-radius: 5px 5px;
+    margin-top: 10px;
+    background-color: #ffffff !important;
+    
+}
+/* style item */
+.body .item{
+    margin-top: 10px;
+}
+.body .item{
+    text-decoration: none;
+}
+.item .card{
+    /* width: 200px !important;
+    height: 200px !important; */
+    margin-bottom: 10px !important;
+}
+.item .card .card-img-top{
+    margin-top: 5px;
+    width: 230px;
+    height: 200px;
+}
+/* style footer ne */
+.footer{
+    margin-top: 10px;
+    background-color: #079992 !important;
+    /* position: absolute; */
+    /* width: 100%; */
+}
