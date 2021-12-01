@@ -28,9 +28,9 @@
             <div class="col-2 side">
                 <ul class="list-group" style="text-align: left">
                     <li class="list-group-item"><a href="{{ route('admin.orders')}}"><i class="fas fa-list"></i>Sách hóa đơn</a></li>
-                    <li class="list-group-item"><a href="{{ route('admin.members')}}"><i class="far fa-user"></i>Khách hàng</a></li>
+                    <li class="list-group-item"><a href="{{ route('admin.users')}}"><i class="far fa-user"></i>Khách hàng</a></li>
                     <li class="list-group-item"><a href="{{ route('admin.products')}}"><i class="fas fa-book"></i>Tất cả sản phẩm</a></li>
-                    <li class="list-group-item"><a href="{{ route('admin.categories')}}"><i class="fas fa-dollar-sign"></i>Danh mục sách</a></li>
+                    <li class="list-group-item"><a href="{{ route('admin.categories')}}"><i class="fas fa-dollar-sign"></i>Thể loại</a></li>
                     <li class="list-group-item"><a href="{{ route('admin.infors')}}"><i class="fas fa-info-circle"></i>Thông tin website</a></li>
                   </ul>
                   

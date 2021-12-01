@@ -21,3 +21,7 @@ i{
 .body .content{
     background-color: white ;
 }
+.body .content .insert{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
