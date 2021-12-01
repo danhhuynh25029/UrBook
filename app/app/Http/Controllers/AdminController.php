@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\Category;
+use App\Models\Information;
 class AdminController extends Controller
 {
     public function all(){
@@ -12,7 +13,8 @@ class AdminController extends Controller
         // return "Admin";
     }
     public function infors(){
-        return view('Admin/infors');
+        $infor = Information::all();
+        return view('Admin/infors',['infor'=>$infor]);
     }
     public function products(){
         return view('Admin/products');

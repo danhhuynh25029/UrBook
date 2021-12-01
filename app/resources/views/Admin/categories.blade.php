@@ -16,7 +16,7 @@
           <th scope="row">{{ $item->id}}</th>
           <td>{{ $item->name}}</td>
           <td>
-            <a href="{{route('categories.edit')}}"><button type="button" class="btn btn-primary">Chỉnh sửa</button></a>
+            <a href="{{route('categories.edit',['id'=>$item->id,'name'=>$item->name])}}"><button type="button" class="btn btn-primary">Chỉnh sửa</button></a>
             <a href="{{route('categories.delete',['id'=>$item->id])}}"><button type="button" class="btn btn-danger">Xóa</button></a>
           </td>
       </tr>

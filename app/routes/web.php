@@ -44,11 +44,11 @@ Route::prefix('admin/categories')->group(function(){
     Route::post('update',[CategoryController::class,'update'])->name('categories.update');
 });
 Route::prefix('admin/infors')->group(function(){
-    Route::get('edit',[InforController::class,'edit'])->name('infor.edit');
-    Route::get('insert',[InforController::class,'insert'])->name('infor.insert');
-    Route::post('insert',[InforController::class,'insert'])->name('infor.insert');
-    Route::post('delete',[InforController::class,'delete'])->name('infor.delete');
-    Route::post('update',[InforController::class,'update'])->name('infor.update');
+    Route::get('edit',[InforController::class,'edit'])->name('infors.edit');
+    Route::get('insert',[InforController::class,'insert'])->name('infors.insert');
+    Route::post('insert',[InforController::class,'insert'])->name('infors.insert');
+    Route::post('delete',[InforController::class,'delete'])->name('infors.delete');
+    Route::post('update',[InforController::class,'update'])->name('infors.update');
 });
 Route::prefix('')->group(function(){
     

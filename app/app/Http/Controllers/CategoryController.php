@@ -6,27 +6,37 @@ use Illuminate\Http\Request;
 use App\Models\Category;
 class CategoryController extends Controller
 {
-    public function edit(){
-        return view('Admin/form/edit',['path'=>'categories.update']);
+    public function edit(Request $request){
+        $name = $request->name;
+        return view('Admin/form/edit',['path'=>'categories.update','name'=>$name]);
     }
 
     public function insert(Request $request){
         if($request->isMethod('get')){
-            return view('Admin/form/edit',['path'=>'categories.insert']);
+            return view('Admin/form/edit',['path'=>'categories.insert','name'=>null]);
         }else{
-            return "post";
+            // echo $request->name;
+            $category = new Category;
+            $category->name = $request->name;
+            $category->save();
+            return redirect()->route('admin.categories');
         }
-        // dd($request);
-        // return "insert";
     }
     public function delete(Request $request){
         $id = $request->id;
-        $cate = Category::find($id);
-        // $cate->delete();
-        dd($cate);
-        // return $cate;
+        $category = Category::find($id);
+        $category->delete();
+        // dd($cate);
+        return redirect()->route('admin.categories');
     }
-    public function update(){
-        return "update";
+    public function update(Request $request){
+        if($request->isMethod('get')){
+            return view('Admin/form/edit',['path'=>'categories.update']);
+        }else{
+            $category = Category::find(1);
+            $category->name = $request->name;
+            $category->save();
+            return redirect()->route('admin.categories');
+        }
     }
 }

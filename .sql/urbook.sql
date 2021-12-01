@@ -1,6 +1,15 @@
--- create table categories(
+-- DROP DATABASE urbook;
+-- CREATE DATABASE IF NOT EXiSTS urbook CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+-- USE urbook 
+-- CREATE TABLE categories(
 -- 	id int auto_increment not null,
---     name varchar(50),
+--     name varchar(20) not null,
 --     primary key(id)
 -- );
--- insert into categories(name) values('Ngôn Tình');
+-- CREATE TABLE information(
+-- 	id int auto_increment not null,
+--     type varchar(50) not null,
+--     infor varchar(50),
+--     primary key(id)
+-- );
+-- INSERT INTO information(type,infor) VALUES('SDT','0789658670');
