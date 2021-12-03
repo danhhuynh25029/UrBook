@@ -18,7 +18,7 @@
         <td>{{$item->type}}</td>
         <td>{{$item->infor}}</td>
         <td>
-          <a href="{{ route('infors.edit',['id'=>$item->id])}}"><button type="button" class="btn btn-primary">Chỉnh sửa</button></a>
+          <a href="{{ route('infors.update',['id'=>$item->id])}}"><button type="button" class="btn btn-primary">Chỉnh sửa</button></a>
           {{-- <a href="{{ route('infors.delete')}}"><button type="button" class="btn btn-danger">Xóa</button></a> --}}
         </td>
       </tr>

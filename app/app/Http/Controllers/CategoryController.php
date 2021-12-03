@@ -6,14 +6,10 @@ use Illuminate\Http\Request;
 use App\Models\Category;
 class CategoryController extends Controller
 {
-    public function edit(Request $request){
-        $name = $request->name;
-        return view('Admin/form/edit',['path'=>'categories.update','name'=>$name]);
-    }
 
     public function insert(Request $request){
         if($request->isMethod('get')){
-            return view('Admin/form/edit',['path'=>'categories.insert','name'=>null]);
+            return view('Admin/form/edit',['path'=>'categories.insert','cate'=>null]);
         }else{
             // echo $request->name;
             $category = new Category;
@@ -31,9 +27,10 @@ class CategoryController extends Controller
     }
     public function update(Request $request){
         if($request->isMethod('get')){
-            return view('Admin/form/edit',['path'=>'categories.update']);
+            $cate = Category::find($request->id);
+            return view('Admin/form/edit',['path'=>'categories.update','cate'=>$cate]);
         }else{
-            $category = Category::find(1);
+            $category = Category::find($request->id);
             $category->name = $request->name;
             $category->save();
             return redirect()->route('admin.categories');

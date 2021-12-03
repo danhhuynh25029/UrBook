@@ -42,9 +42,10 @@
             </div>
         </div>
     </div>
+<script type="text/javascript" src="{{ asset('js/jquery-3.6.0.min.js')}}"></script>
 <script type="text/javascript" src="{{ asset('js/bootstrap.bundle.min.js')}}"></script>
 </body>
-<!-- <script src="js/popper.min.js"></script> -->
+<!-- <script src="js/popper.min.js"></scrip> -->
 <!-- <script src="js/bootstrap.min.js"></script> -->
 
 </html>

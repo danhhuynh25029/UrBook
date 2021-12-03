@@ -37,21 +37,24 @@ Route::prefix('admin')->group(function(){
     // Route::get('edit',[AdminController::class,'edit'])->name('admin.edit');
 });
 Route::prefix('admin/categories')->group(function(){
-    Route::get('edit',[CategoryController::class,'edit'])->name('categories.edit');
+    Route::get('update',[CategoryController::class,'update'])->name('categories.update');
     Route::get('insert',[CategoryController::class,'insert'])->name('categories.insert');
     Route::post('insert',[CategoryController::class,'insert'])->name('categories.insert');
     Route::get('delete',[CategoryController::class,'delete'])->name('categories.delete');
     Route::post('update',[CategoryController::class,'update'])->name('categories.update');
 });
 Route::prefix('admin/infors')->group(function(){
-    Route::get('edit',[InforController::class,'edit'])->name('infors.edit');
+    Route::get('update',[InforController::class,'update'])->name('infors.update');
     Route::get('insert',[InforController::class,'insert'])->name('infors.insert');
     Route::post('insert',[InforController::class,'insert'])->name('infors.insert');
-    Route::post('delete',[InforController::class,'delete'])->name('infors.delete');
+    // Route::post('delete',[InforController::class,'delete'])->name('infors.delete');
     Route::post('update',[InforController::class,'update'])->name('infors.update');
 });
-Route::prefix('')->group(function(){
-    
+Route::prefix('admin/products')->group(function(){
+    Route::get('insert',[ProductController::class,'insert'])->name('products.insert');
+    Route::post('insert',[ProductController::class,'insert'])->name('products.insert');
+    Route::get('update',[ProductController::class,'update'])->name('products.update');
+    Route::post('update',[ProductController::class,'update'])->name('products.update');
+    Route::get('delete',[ProductController::class,'delete'])->name('products.delete');
 });
 
-Route::post('get',[AdminController::class,'getData'])->name('getData');

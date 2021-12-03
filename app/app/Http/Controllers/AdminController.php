@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\Category;
 use App\Models\Information;
+use App\Models\Product;
 class AdminController extends Controller
 {
     public function all(){
@@ -17,10 +18,13 @@ class AdminController extends Controller
         return view('Admin/infors',['infor'=>$infor]);
     }
     public function products(){
-        return view('Admin/products');
+        // $cate = Category::all();
+        $product = Product::all();
+        return view('Admin/products',['products'=>$product]);
+        // return $product;
     }
     public function categories(){
-        $cate = DB::table('categories')->get();
+        // $cate = DB::table('categories')->get();
         $ls = Category::all();
         // dd($ls);
         return view('Admin/categories',['cate'=>$ls]);
@@ -33,11 +37,5 @@ class AdminController extends Controller
     }
     public function edit(){
         return view('Admin/form/editCate');
-    }
-    public function getData(Request $req){
-        print_r($req->input());
-        // $name = $req->id;
-        // echo $name;
-        return "lay dau lieu";
     }
 }
