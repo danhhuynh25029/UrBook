@@ -46,33 +46,22 @@
         </div>
     </div>
         <!-- Day la noi dung ne -->
-    <div class="container-fluid" style="width: 93%;">
-        <div class="row body">
-            <div class="col-2 categories" >
-                <h3>Danh mục</h3>
-                <div class="list">
-                <ul>
-                    @foreach ($cate as $i)
-                        <li><a href="#">{{$i->name}}</a></li>
-                    @endforeach
-                    {{-- <li><a href="#">Sách giáo dục</a></li>
-                    <li><a href="#">Ngôn tình</a></li> --}}
-                </ul>
-            </div>
-            </div>
-            @yield('content')
-        </div>
-        <!-- panigation -->
-        
-        <div class="row" style="margin-top: 10px;">
-            @yield('panigation')
-        </div>
-    </div>
+        @yield('body');
         <!-- footer ne -->
     <div class="container-fluid">
         <div class="row footer">
-            <div class="col">
-                <p>footer ne nhe</p>
+            <div class="container">
+                <div class="row">
+                <div class="col-6">
+                    <p>footer ne nhe</p>
+                </div>
+                <div class="col-6">
+                    <p>dia chi</p>
+                </div>
+                {{-- <div class="col-4">
+
+                </div> --}}
+                </div>
             </div>
         </div>
     </div>

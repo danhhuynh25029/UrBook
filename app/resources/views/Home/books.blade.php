@@ -1,4 +1,4 @@
-@extends('Home.home')
+@extends('Home.body')
 @section('content')
 <div class="col-10 content">
     <!-- <div class="content bg-white" style="width: 100%;margin-top: 10px;">
@@ -9,65 +9,21 @@
     </div> -->
     <!-- Noi hien thi san pham ne -->
     <div class="row">
+        @foreach ($products as $item)  
         <div class="col-3 item">
+          <a href="{{route('home.detail',['id'=>$item->id])}}" style="text-decoration:none;color:black;">
             <div class="card" >
-                <img src="./images/1.jpg" class="card-img-top" alt="..."  >
+                <img src="{{asset($item->image)}}" class="card-img-top" alt="..."  >
                 <div class="card-body">
-                    <p class="card-text">Những bông hoa nhỏ</p>
-                    <p class="card-text">Tác giả : haha</p>
+                    <p class="card-text name">{{$item->name}}</p>
+                    <p class="card-text price"><b>Giá : {{ number_format($item->price,0,',','.')}} vnđ</b></p>
                     <!-- <a href="#" class="card-link">Thêm vào giỏ</a>
                     <a href="#" class="card-link">Xem chi tiết</a> -->
                   </div>
               </div>
+            </a>
         </div>
-        <div class="col-3 item">
-            <div class="card">
-                <img src="./images/1.jpg" class="card-img-top" alt="..."  >
-                <div class="card-body">
-                    <p class="card-text">Những bông hoa nhỏ</p>
-                    <p class="card-text">Tác giả : haha</p>
-                  </div>
-              </div>
-        </div>
-        <div class="col-3 item">
-            <div class="card" >
-                <img src="./images/1.jpg" class="card-img-top" alt="..."  >
-                <div class="card-body">
-                    <p class="card-text">Những bông hoa nhỏ</p>
-                    <p class="card-text">Tác giả : haha</p>
-                    <!-- <a href="#" class="card-link">Thêm vào giỏ</a>
-                    <a href="#" class="card-link">Xem chi tiết</a> -->
-                </div>
-              </div>
-        </div>
-        <div class="col-3 item">
-            <div class="card">
-                <img src="./images/1.jpg" class="card-img-top" alt="..."  >
-                <div class="card-body">
-                  <p class="card-text">Những bông hoa nhỏ</p>
-                  <p class="card-text">Tác giả : haha</p>
-                </div>
-              </div>
-        </div>
-        <div class="col-3 item">
-            <div class="card">
-                <img src="./images/1.jpg" class="card-img-top" alt="..."  >
-                <div class="card-body">
-                  <p class="card-text">Những bông hoa nhỏ</p>
-                  <p class="card-text">Tác giả : haha</p>
-                  
-                </div>
-              </div>
-        </div>
-        <div class="col-3 item">
-            <div class="card">
-                <img src="./images/2.jpg" class="card-img-top" alt="..."  >
-                <div class="card-body">
-                  <p class="card-text">Những bông hoa nhỏ</p>
-                  <p class="card-text">Tác giả : haha</p>
-                </div>
-              </div>
-        </div>
+        @endforeach
     </div>
 </div>
 

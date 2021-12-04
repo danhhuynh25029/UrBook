@@ -63,6 +63,9 @@ body{
     margin-top: 5px;
     width: 230px;
     height: 200px;
+} 
+.item .price{
+    color:blue;
 }
 /* style footer ne */
 .footer{

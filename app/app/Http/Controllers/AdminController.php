@@ -18,10 +18,8 @@ class AdminController extends Controller
         return view('Admin/infors',['infor'=>$infor]);
     }
     public function products(){
-        // $cate = Category::all();
         $product = Product::all();
         return view('Admin/products',['products'=>$product]);
-        // return $product;
     }
     public function categories(){
         // $cate = DB::table('categories')->get();

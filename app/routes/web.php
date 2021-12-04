@@ -19,10 +19,11 @@ use App\Http\Controllers\ProductController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect()->route('home');
 });
 Route::prefix('home')->group(function(){
     Route::get('',[HomeController::class,'homePage'])->name('home');
+    Route::get('detail',[HomeController::class,'showDetail'])->name('home.detail');
 });
 Route::get('signin',[HomeController::class,'signin'])->name('signin');
 Route::get('signup',[HomeController::class,'signup'])->name('signup');

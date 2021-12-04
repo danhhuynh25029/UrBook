@@ -10,7 +10,7 @@ class ProductController extends Controller
     public function insert(Request $request){
         if($request->isMethod('get')){
             $cate = Category::all();
-            return view('Admin/form/insertProduct',['cate'=>$cate]);
+            return view('Admin/form/insertProduct',['cate'=>$cate,'product'=>null]);
         }else{
             if(!$request->hasFile('image')){
                 return "Moi chon lai";
@@ -40,10 +40,25 @@ class ProductController extends Controller
         if($request->isMethod('get')){
             $id =$request->id;
             $product = Product::find($id);
-            return view('Admin/form/insertProduct',['product'=>$product]);
+            $cate = Category::all();
+            return view('Admin/form/insertProduct',['product'=>$product,'cate'=>$cate]);
         }else{
-            
+            $product = Product::find($request->id);
+            $product->name = $request->name;
+            $product->author = $request->author;
+            $product->description = $request->description;
+            $product->quantity = $request->quantity;
+            $product->price = $request->price;
+            if($request->haseFile('image')){
+                $image = $request->file('image');
+                $store = $request->move('image',$image->getclientOriginalName());
+                $product->image = $store;
+            }else{
+                $product->image = $product->image;
+            }
+            $product->category_id = $request->category;
+            $product->save();
+            return redirect()->route('admin.products');
         }
-        // return "update";
     }
 }
