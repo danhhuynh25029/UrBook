@@ -7,7 +7,6 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\InforController;
 use App\Http\Controllers\ProductController;
-use App\Http\Controllers\AccountController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,20 +18,16 @@ use App\Http\Controllers\AccountController;
 |
 */
 
-Route::prefix('')->group(function () {
-    Route::get('',function(){
-        return redirect()->route('home');
-    });
-    Route::get('signin',[AccountController::class,'signin'])->name('signin');
-    Route::post('signin',[AccountController::class,'signin'])->name('signin');
-    Route::get('signup',[AccountController::class,'signup'])->name('signup');
-    Route::post('signup',[AccountController::class,'signup'])->name('signup');
-    // return redirect()->route('home');
+Route::get('/', function () {
+    return redirect()->route('home');
 });
 Route::prefix('home')->group(function(){
     Route::get('',[HomeController::class,'homePage'])->name('home');
     Route::get('detail',[HomeController::class,'showDetail'])->name('home.detail');
 });
+Route::get('signin',[HomeController::class,'signin'])->name('signin');
+Route::get('signup',[HomeController::class,'signup'])->name('signup');
+
 Route::prefix('admin')->group(function(){
     Route::get('',[AdminController::class,'all'])->name('admin');
     Route::get('users',[AdminController::class,'users'])->name('admin.users');
@@ -40,6 +35,7 @@ Route::prefix('admin')->group(function(){
     Route::get('products',[AdminController::class,'products'])->name('admin.products');
     Route::get('categories',[AdminController::class,'categories'])->name('admin.categories');
     Route::get('orders',[AdminController::class,'orders'])->name('admin.orders');
+    // Route::get('edit',[AdminController::class,'edit'])->name('admin.edit');
 });
 Route::prefix('admin/categories')->group(function(){
     Route::get('update',[CategoryController::class,'update'])->name('categories.update');

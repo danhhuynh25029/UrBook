@@ -19,10 +19,4 @@ class HomeController extends Controller
         $product = Product::find($request->id);
         return $product;
     }
-    public function signin(){
-        return view('Login/signin');
-    }
-    public function signup(){
-        return view('Login/signup');
-    }
 }

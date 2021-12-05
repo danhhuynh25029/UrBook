@@ -9,23 +9,25 @@
     <link rel="stylesheet" href="{{ asset('css/login.css') }}">
 </head>
 <body>
-<form>
+<form action="{{route('signin')}}" method="POST">
+    @csrf
     <table class="Signin">
         <tr>
-            <td colspan="2">Đăng nhập</td>
+            <td>Đăng nhập</td>
+            <td><a href="{{route('signup')}}">Đăng ký</a></td>
         </tr>
         <tr>
             <td colspan="2">
-                <input name="" class="form-control" placeholder="Email" type="email">
+                <input name="email" class="form-control" placeholder="Email" type="email">
             </td>
         </tr>
         <tr>
             <td colspan="2">
-                <input class="form-control" placeholder="******" type="password">
+                <input  name="password" class="form-control" placeholder="******" type="password">
             </td>
         </tr>
         <tr>
-        <td><button type="button" class="btn btn-primary">Đăng nhập</button></td>
+        <td><button type="submit" class="btn btn-primary">Đăng nhập</button></td>
         <td><a class="small" href="#">Quên mật khẩu ?</a></td>
         </tr>
     </table>

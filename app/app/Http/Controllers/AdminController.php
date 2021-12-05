@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\DB;
 use App\Models\Category;
 use App\Models\Information;
 use App\Models\Product;
+use App\Models\Users;
 class AdminController extends Controller
 {
     public function all(){
@@ -31,7 +32,8 @@ class AdminController extends Controller
         return view('Admin/orders');
     }
     public function users(){
-        return view('Admin/users');
+        $users = Users::all();
+        return view('Admin/users',['users'=>$users]);
     }
     public function edit(){
         return view('Admin/form/editCate');
