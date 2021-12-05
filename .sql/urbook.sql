@@ -32,11 +32,14 @@ CREATE TABLE products(
     foreign key(category_id) references categories(id)
 );
 -- tạo bảng người mua hàng
+drop table user;
 create table user(
 	id int auto_increment not null,
-    email varchar(50) not null,
-    password varchar(50) not null,
+    name varchar(255) not null,
+    email varchar(255) not null,
+    password varchar(255) not null,
     create_at datetime default current_timestamp(),
     update_at datetime default now(),
 	primary key(id)
 );
+insert into user(name,email,password) values('admin','admin@gmail.com','123');

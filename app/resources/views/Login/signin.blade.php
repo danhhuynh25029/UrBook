@@ -18,12 +18,12 @@
         </tr>
         <tr>
             <td colspan="2">
-                <input name="email" class="form-control" placeholder="Email" type="email">
+                <input value="{{$email}}" name="email" class="form-control" placeholder="Email" type="text">
             </td>
         </tr>
         <tr>
             <td colspan="2">
-                <input  name="password" class="form-control" placeholder="******" type="password">
+                <input  value="{{$password}}" name="password" class="form-control" placeholder="******" type="password">
             </td>
         </tr>
         <tr>

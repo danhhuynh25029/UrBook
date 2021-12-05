@@ -12,12 +12,14 @@
     <tbody>
       
         @foreach($users as $item)
-        <tr>
-          <th scope="row">{{$item->id}}</th>
-          <td>{{ $item-> email}}</td>
-          <td>{{$item->create_at}}</td>
-          <td><a href="">Chi tiết</a></td>
-        </tr>
+          @if($item->id != 1)
+            <tr>
+              <th scope="row">{{$item->id}}</th>
+              <td>{{ $item-> email}}</td>
+              <td>{{$item->create_at}}</td>
+              <td><a href="">Chi tiết</a></td>
+            </tr>
+          @endif
         @endforeach        
     </tbody>
   </table>
