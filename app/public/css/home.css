@@ -74,3 +74,10 @@ body{
     /* position: absolute; */
     /* width: 100%; */
 }
+.footer ul li {
+    list-style: none;
+    color: white;
+}
+.footer label{
+    color: white;
+}

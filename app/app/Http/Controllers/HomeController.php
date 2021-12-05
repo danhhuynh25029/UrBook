@@ -6,14 +6,16 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\Category;
 use App\Models\Product;
+use App\Models\Information;
 class HomeController extends Controller
 {
     //
 
     public function homePage(){
-        $cate = Category::all();
-        $product = Product::all();
-        return view('Home/books',['categories'=>$cate,'products'=>$product]);
+        $cates = Category::all();
+        $products = Product::all();
+        $infors = Information::all();
+        return view('Home/books',['categories'=>$cates,'products'=>$products,'infors'=>$infors]);
     }
     public function showDetail(Request $request){
         $product = Product::find($request->id);
