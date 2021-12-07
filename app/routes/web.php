@@ -27,11 +27,14 @@ Route::prefix('')->group(function () {
     Route::post('signin',[AccountController::class,'signin'])->name('signin');
     Route::get('signup',[AccountController::class,'signup'])->name('signup');
     Route::post('signup',[AccountController::class,'signup'])->name('signup');
+    Route::get('set',[AccountController::class,'setSession']);
+    Route::get('get',[AccountController::class,'getSession']);
     // return redirect()->route('home');
 });
 Route::prefix('home')->group(function(){
     Route::get('',[HomeController::class,'homePage'])->name('home');
     Route::get('detail',[HomeController::class,'showDetail'])->name('home.detail');
+    Route::get('cart',[HomeController::class,'showCart'])->name('home.cart');
 });
 Route::prefix('admin')->group(function(){
     Route::get('',[AdminController::class,'all'])->name('admin');
@@ -62,4 +65,3 @@ Route::prefix('admin/products')->group(function(){
     Route::post('update',[ProductController::class,'update'])->name('products.update');
     Route::get('delete',[ProductController::class,'delete'])->name('products.delete');
 });
-

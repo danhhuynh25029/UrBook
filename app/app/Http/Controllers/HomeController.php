@@ -15,10 +15,25 @@ class HomeController extends Controller
         $cates = Category::all();
         $products = Product::all();
         $infors = Information::all();
-        return view('Home/books',['categories'=>$cates,'products'=>$products,'infors'=>$infors]);
+        return view('Home/books',[
+                'categories'=>$cates,
+                'products'=>$products,
+                'infors'=>$infors,
+            ]
+        );
     }
     public function showDetail(Request $request){
         $product = Product::find($request->id);
-        return $product;
+         $infors = Information::all();
+        return view('Home/detail',[
+            'product'=>$product,
+            'infors'=>$infors
+        ]);
+    }
+    public function showCart(Request $request){
+        $infors = Information::all();
+        return view('Home/cart',[
+            'infors'=>$infors
+        ]);
     }
 }

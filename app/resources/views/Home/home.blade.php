@@ -22,7 +22,7 @@
                         <a class="nav-link" href="#" style="font-size:30px;">UrBook</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="#">Trang chủ</a>
+                      <a class="nav-link" href="{{route('home')}}">Trang chủ</a>
                     </li>
                     <li class="nav-item">
                       <a class="nav-link" href="#">Giới thiệu</a>
@@ -35,7 +35,7 @@
             <div class="col-3">
                 <ul class="nav" style="line-height: 50px;">  
                     <li class="nav-item">
-                        <a class="nav-link" href="#"><i class="fas fa-shopping-cart"></i>Giỏ hàng</a>
+                        <a class="nav-link" href="{{route('home.cart')}}"><i class="fas fa-shopping-cart"></i>Giỏ hàng</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('signin')}}"><i class="fas fa-sign-in-alt"></i>Đăng nhập</a>

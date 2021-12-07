@@ -13,37 +13,50 @@ class AccountController extends Controller
             $password = $request->cookie('password');
             return view('Login/signin',['email'=>$email,'password'=>$password]);
         }else{
-            $email = $request->email;
+            $name = $request->name;
             $password = $request->password;
-            $user = Users::where([['name','=',$email],['password','=',$password]])->get();
+            $user = Users::where([['name','=',$name],['password','=',$password]])->get();
             if(count($user) != 0){
                 if((int)$user[0]->id == 1){
                     return redirect()->route('admin');
                 }else{
-                    $cookie_mail = Cookie::make('email',$email);
+                    // tao cookie luu thong tin nguoi dung
+                    $cookie_mail = Cookie::make('name',$name);
                     $cookie_pass = Cookie::make('password',$password);
-                    echo "Tao cuc ki thanh cong";
-                    return redirect()->route('signin')->withCookie($cookie_mail)->withCookie($cookie_pass);
+                    // tao session kiem tra
+                    $request->session()->put('name',$name);
+                    $request->session()->put('password',$password);
+                    return redirect()->route('home',['user'=>$user[0]])->withCookie($cookie_mail)->withCookie($cookie_pass);
                 }
             }else{
                 return view('Login/signin');
             }
-            ;
         }
-        
     }
     public function signup(Request $request){
         if($request->isMethod('get')){
             // echo $request->cookie('email');
             return view('Login/signup');
         }else{
+            $name = $request->name;
             $email = $request->email;
             $password = $request->password;
             $user = new Users;
+            $user->name = $name;
             $user->email = $email;
             $user->password = $password;
             $user->save();
             return redirect()->route('signin');
         }
+    }
+    public function setSession(Request $request){
+        $request->session()->put('name','danh');
+        $request->session()->push('cart.products',['id'=>'2','quantity'=>'2']);
+        $request->session()->push('cart.products',['id'=>'1','quantity'=>'2']);
+    }
+    public function getSession(Request $request){
+        $ls = $request->session()->get('cart.products');
+dd        ($ls);
+        // $request->session()->forget('cart.products');
     }
 }

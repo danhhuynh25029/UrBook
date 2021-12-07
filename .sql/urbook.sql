@@ -38,8 +38,8 @@ create table user(
     name varchar(255) not null,
     email varchar(255) not null,
     password varchar(255) not null,
-    create_at datetime default current_timestamp(),
-    update_at datetime default now(),
+    created_at datetime default current_timestamp(),
+    updated_at datetime default now(),
 	primary key(id)
 );
 insert into user(name,email,password) values('admin','admin@gmail.com','123');
