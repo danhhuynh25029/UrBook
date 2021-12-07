@@ -6,8 +6,8 @@
             <h3>Danh mục</h3>
             <div class="list">
             <ul>
-                @foreach ($categories as $i)
-                    <li><a href="#">{{$i->name}}</a></li>
+                @foreach($categories as $item)
+                <li><a href="#">{{$item->name}}</a></li>
                 @endforeach
                 {{-- <li><a href="#">Sách giáo dục</a></li>
                 <li><a href="#">Ngôn tình</a></li> --}}
@@ -17,7 +17,6 @@
         @yield('content')
     </div>
     <!-- panigation -->
-    
     <div class="row" style="margin-top: 10px;">
         @yield('panigation')
     </div>

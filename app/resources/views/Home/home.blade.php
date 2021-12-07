@@ -38,7 +38,11 @@
                         <a class="nav-link" href="{{route('home.cart')}}"><i class="fas fa-shopping-cart"></i>Giỏ hàng</a>
                     </li>
                     <li class="nav-item">
+                        @if($user != null)
+                        <a class="nav-link" href="{{ route('profile')}}"><i class="far fa-user"></i>{{$user->name}}</a>
+                        @else
                         <a class="nav-link" href="{{ route('signin')}}"><i class="fas fa-sign-in-alt"></i>Đăng nhập</a>
+                        @endif
                     </li>
                 </ul>
             </div>

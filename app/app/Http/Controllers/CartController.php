@@ -11,6 +11,13 @@ class CartController extends Controller
         $request->session()->push('cart',['id'=>$request->id,'quantity'=>$request->quantity]);
         return redirect()->route('home');
     }
+    public function update(Request $request){
+        // $key = $request->key;
+        // $quantity = $request->quantity;
+        // $request->session()->put('cart.'.$key,['quantity'=>$quantity]);
+        $data = $request->quantity;
+        return $data;
+    }
     public function delete(Request $request){
         $key = $request->key;
         $request->session()->forget('cart.'.$key);

@@ -43,3 +43,22 @@ create table user(
 	primary key(id)
 );
 insert into user(name,email,password) values('admin','admin@gmail.com','123');
+-- tạo bảng hóa đơn
+create table orders(
+	id int auto_increment not null,
+    user_id int not null,
+    total int not null,
+    created_at datetime default current_timestamp(),
+    updated_at datetime default now(),
+    primary key(id),
+    foreign key(user_id) references user(id)
+);
+create table order_id(
+	id int not null auto_increment,
+    product_id int not null,
+    order_id int not null,
+    quantity int not null,
+    primary key(id),
+    foreign key(product_id) references products(id),
+    foreign key(order_id) references orders(id)
+);

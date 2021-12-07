@@ -9,6 +9,7 @@ use App\Http\Controllers\InforController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\AccountController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\ProfileController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -28,6 +29,7 @@ Route::prefix('')->group(function () {
     Route::post('signin',[AccountController::class,'signin'])->name('signin');
     Route::get('signup',[AccountController::class,'signup'])->name('signup');
     Route::post('signup',[AccountController::class,'signup'])->name('signup');
+    // test thu seesion
     Route::get('set',[AccountController::class,'setSession']);
     Route::get('get',[AccountController::class,'getSession']);
     // return redirect()->route('home');
@@ -36,11 +38,20 @@ Route::prefix('home')->group(function(){
     Route::get('',[HomeController::class,'homePage'])->name('home');
     Route::get('detail',[HomeController::class,'showDetail'])->name('home.detail');
     Route::get('cart',[HomeController::class,'showCart'])->name('home.cart');
+    Route::get('profile',[ProfileController::class,'profile'])->name('profile');
+});
+// Quan ly trang thong tin nguoi dung
+Route::prefix('profile')->group(function(){
+    Route::get('infor',[ProfileController::class,'inforUser'])->name('profile.infor');
+    Route::get('ordering',[ProfileController::class,'ordering'])->name('profile.ordering');
+    Route::get('ordercompeleted',[ProfileController::class,'ordercompeleted'])->name('profile.ordercompeleted');
 });
 Route::prefix('home/cart')->group(function(){
       Route::get('add',[CartController::class,'add'])->name('cart.add');
       Route::get('delele',[CartController::class,'delete'])->name('cart.delete');
+      Route::get('update',[CartController::class,'update'])->name('cart.update');
 });
+// trang admin
 Route::prefix('admin')->group(function(){
     Route::get('',[AdminController::class,'all'])->name('admin');
     Route::get('users',[AdminController::class,'users'])->name('admin.users');
@@ -49,6 +60,7 @@ Route::prefix('admin')->group(function(){
     Route::get('categories',[AdminController::class,'categories'])->name('admin.categories');
     Route::get('orders',[AdminController::class,'orders'])->name('admin.orders');
 });
+// The loai sach
 Route::prefix('admin/categories')->group(function(){
     Route::get('update',[CategoryController::class,'update'])->name('categories.update');
     Route::get('insert',[CategoryController::class,'insert'])->name('categories.insert');
@@ -56,6 +68,7 @@ Route::prefix('admin/categories')->group(function(){
     Route::get('delete',[CategoryController::class,'delete'])->name('categories.delete');
     Route::post('update',[CategoryController::class,'update'])->name('categories.update');
 });
+// Thong tin
 Route::prefix('admin/infors')->group(function(){
     Route::get('update',[InforController::class,'update'])->name('infors.update');
     Route::get('insert',[InforController::class,'insert'])->name('infors.insert');
@@ -63,6 +76,7 @@ Route::prefix('admin/infors')->group(function(){
     // Route::post('delete',[InforController::class,'delete'])->name('infors.delete');
     Route::post('update',[InforController::class,'update'])->name('infors.update');
 });
+// San pham hien co
 Route::prefix('admin/products')->group(function(){
     Route::get('insert',[ProductController::class,'insert'])->name('products.insert');
     Route::post('insert',[ProductController::class,'insert'])->name('products.insert');

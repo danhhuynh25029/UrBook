@@ -20,8 +20,8 @@
 			      <th scope="row">{{$item->id}}</th>
 			      <td><img src="{{asset($item->image)}}" alt=""></td>
 			      <td>{{$item->name}}</td>
-			      <td><input style="text-align: center;" type="number" name="" value="{{$quantitys[$key]}}"></td>
-			      <td><b style="color:blue">{{$item->price}} vnđ</b></td>
+			      <td><input onchange="show()"style="text-align: center;" id="quantity{{$key}}" type="number" name="" value="{{$quantitys[$key]}}"></td>
+			      <td><b style="color:blue" id="price">{{$item->price}} vnđ</b></td>
 			      <td><a href="{{route('cart.delete',['key'=>$key])}}"><button type="button" class="btn btn-danger">Xóa</button></a></td>
 			    </tr>
 			    @endforeach
@@ -37,4 +37,21 @@
 		</div>
 	</div>
 </div>
+<script type="text/javascript">
+	function show(){
+		var c = parseInt(quantity0.value);
+		console.log(c);
+		var ajax = new XMLHttpRequest();
+		ajax.onreadystatechange = function(){
+			if(this.readyState == 4 && this.status == 200){
+				console.log(this.responseText);
+			}
+		}
+		ajax.open('GET',`{{route('cart.update')}}?quantity=${c}`,true);
+		ajax.send();
+		
+		
+	}
+	
+</script>
 @endsection
