@@ -10,8 +10,17 @@ use App\Models\Product;
 use App\Models\Users;
 class AdminController extends Controller
 {
-    public function all(){
-        return view('Admin/orders');
+    public function all(Request $request){
+        $name = $request->session()->get('name');
+        $password = $request->session()->get('password');
+        $user = Users::find(1);
+        if($user->name == $name && $user->password == $password){
+            echo 1;
+            return view('Admin/orders');    
+        }else{
+            echo 1;
+            return redirect()->route('signin');
+        }
         // return "Admin";
     }
     public function infors(){

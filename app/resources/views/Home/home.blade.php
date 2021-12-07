@@ -19,7 +19,7 @@
             <div class="col">
                 <ul class="nav" style="line-height: 50px;">
                     <li class="nav-item">
-                        <a class="nav-link" href="#" style="font-size:30px;">UrBook</a>
+                        <a class="nav-link" href="{{route('home')}}" style="font-size:30px;">UrBook</a>
                     </li>
                     <li class="nav-item">
                       <a class="nav-link" href="{{route('home')}}">Trang chủ</a>

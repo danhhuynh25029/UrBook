@@ -8,6 +8,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\InforController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\AccountController;
+use App\Http\Controllers\CartController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -35,6 +36,10 @@ Route::prefix('home')->group(function(){
     Route::get('',[HomeController::class,'homePage'])->name('home');
     Route::get('detail',[HomeController::class,'showDetail'])->name('home.detail');
     Route::get('cart',[HomeController::class,'showCart'])->name('home.cart');
+});
+Route::prefix('home/cart')->group(function(){
+      Route::get('add',[CartController::class,'add'])->name('cart.add');
+      Route::get('delele',[CartController::class,'delete'])->name('cart.delete');
 });
 Route::prefix('admin')->group(function(){
     Route::get('',[AdminController::class,'all'])->name('admin');

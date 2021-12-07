@@ -95,6 +95,10 @@ body{
     min-height: 100vh;
     background-color: white;
 }
+.cart img{
+    width: 130px;
+    height: 100px;
+}
 /* detail style */
 .detail{
     margin-top: 10px;

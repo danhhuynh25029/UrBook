@@ -13,7 +13,8 @@
     @csrf
     <table class="Signup">
         <tr>
-            <td colspan="2">Đăng kí</td>
+            <td><a href="{{route('signin')}}">Đăng nhập</a></td>
+            <td>Đăng kí</td>
         </tr>
         <tr>
             <td colspan="2" style="text-align: left;">

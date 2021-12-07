@@ -20,14 +20,17 @@
                 <td><h4 style="color:blue"><b>Giá : {{ number_format($product->price,0,',','.')}} vnđ</b></h4></td>
                 </tr>   
                 </table>
-                <form>
+                <form action="{{route('cart.add')}}" method="GET">
                     <table>
                         <tr>
-                        <td><input type="number" name="" step="1" value="0"></td>
+                        <td><input type="text" name="id" value="{{$product->id}}" style="display: none;"></td>
                         </tr>
-                    <tr>
-                        <td><button type="button" class="btn btn-primary">Mua</button></td>
-                    </tr>
+                        <tr>
+                        <td><input type="number" name="quantity" step="1" value="0"></td>
+                        </tr>
+                        <tr>
+                        <td><button type="submit" class="btn btn-primary">Mua</button></td>
+                        </tr>
                     </table>
                 </form>
             </div>

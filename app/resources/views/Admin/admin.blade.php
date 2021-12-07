@@ -14,7 +14,7 @@
         <div class="row head">
             <div class="col">
             <nav id="navbar-example2" class="navbar  px-3">
-                <a class="navbar-brand" href="#" style="font-size: 25px;">UrBook</a>
+                <a class="navbar-brand" href="{{route('home')}}" style="font-size: 25px;">UrBook</a>
                 <ul class="nav nav-pills">
                   <li class="nav-item">
                     <a href="#"><i class="far fa-user"></i>admin</a>

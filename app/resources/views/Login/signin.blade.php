@@ -18,7 +18,7 @@
         </tr>
         <tr>
             <td colspan="2">
-                <input value="{{$email}}" name="name" class="form-control" placeholder="Email" type="text">
+                <input value="{{$name}}" name="name" class="form-control" placeholder="name" type="text">
             </td>
         </tr>
         <tr>

@@ -9,27 +9,30 @@ class AccountController extends Controller
 {
     public function signin(Request $request){
         if($request->isMethod('get')){
-            $email = $request->cookie('email');
+            $name = $request->cookie('name');
             $password = $request->cookie('password');
-            return view('Login/signin',['email'=>$email,'password'=>$password]);
+            return view('Login/signin',['name'=>$name,'password'=>$password]);
         }else{
             $name = $request->name;
             $password = $request->password;
             $user = Users::where([['name','=',$name],['password','=',$password]])->get();
             if(count($user) != 0){
                 if((int)$user[0]->id == 1){
+                    $request->session()->put('name',$name);
+                    $request->session()->put('password',$password);
                     return redirect()->route('admin');
                 }else{
                     // tao cookie luu thong tin nguoi dung
-                    $cookie_mail = Cookie::make('name',$name);
+                    $cookie_name = Cookie::make('name',$name);
                     $cookie_pass = Cookie::make('password',$password);
                     // tao session kiem tra
                     $request->session()->put('name',$name);
                     $request->session()->put('password',$password);
-                    return redirect()->route('home',['user'=>$user[0]])->withCookie($cookie_mail)->withCookie($cookie_pass);
+                    return redirect()->route('home',['user'=>$user[0]])->withCookie($cookie_name)->withCookie($cookie_pass);
                 }
             }else{
-                return view('Login/signin');
+
+                return redirect()->route('signin');
             }
         }
     }
@@ -55,8 +58,10 @@ class AccountController extends Controller
         $request->session()->push('cart.products',['id'=>'1','quantity'=>'2']);
     }
     public function getSession(Request $request){
-        $ls = $request->session()->get('cart.products');
-dd        ($ls);
-        // $request->session()->forget('cart.products');
+        // $ls = $request->session()->get('cart');
+        // // foreach($ls as $key =>$value){
+        // //     $key =  (string)$key;
+        // //     $request->session()->forget('cart'.$key);
+        // // }
     }
 }

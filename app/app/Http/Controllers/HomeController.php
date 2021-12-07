@@ -9,8 +9,7 @@ use App\Models\Product;
 use App\Models\Information;
 class HomeController extends Controller
 {
-    //
-
+    // Hien thi sach dang ban 
     public function homePage(){
         $cates = Category::all();
         $products = Product::all();
@@ -22,6 +21,7 @@ class HomeController extends Controller
             ]
         );
     }
+    // Hien thi chi tiet sach 
     public function showDetail(Request $request){
         $product = Product::find($request->id);
          $infors = Information::all();
@@ -30,10 +30,23 @@ class HomeController extends Controller
             'infors'=>$infors
         ]);
     }
+    // hien thi gio hang
     public function showCart(Request $request){
         $infors = Information::all();
+        $products = array();
+        $quantitys = array();
+        $ls = $request->session()->get('cart');
+        if($ls != null){
+            foreach($ls as $key =>$value){
+                $product = Product::find($value['id']);
+                $products[$key] = $product;
+                $quantitys[$key] = $value['quantity'];  
+            }   
+        }
         return view('Home/cart',[
-            'infors'=>$infors
+            'infors'=>$infors,
+            'products'=>$products,
+            'quantitys'=>$quantitys,
         ]);
     }
 }
