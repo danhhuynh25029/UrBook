@@ -65,7 +65,7 @@ body{
 }
 .item .card .card-img-top{
     margin-top: 5px;
-    width: 230px;
+    width: 229px;
     height: 200px;
 } 
 .item .price{
@@ -82,9 +82,13 @@ body{
     /* position: absolute; */
     /* width: 100%; */
 }
+.footer ul{
+    margin: 10px;
+}
 .footer ul li {
     list-style: none;
     color: white;
+    height: 30px;
 }
 .footer label{
     color: white;
@@ -124,7 +128,7 @@ body{
 }
 .detail .row .col form table{
     width: 100%;
-    margin-top: 100px;
+    /*margin-top: 100px;*/
 }
 .detail .row .col form table tr{
     width: 50%;

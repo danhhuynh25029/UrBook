@@ -25,6 +25,9 @@
                         <tr>
                         <td><input type="text" name="id" value="{{$product->id}}" style="display: none;"></td>
                         </tr>
+                                                <tr>
+                        <td><input type="text" name="price" value="{{$product->price}}" style="display: none;"></td>
+                        </tr>
                         <tr>
                         <td><input type="number" name="quantity" step="1" value="0"></td>
                         </tr>

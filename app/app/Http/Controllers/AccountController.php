@@ -57,14 +57,16 @@ class AccountController extends Controller
     }
     // public function setSession(Request $request){
     //     $request->session()->put('name','danh');
-    //     $request->session()->push('cart.products',['id'=>'2','quantity'=>'2']);
-    //     $request->session()->push('cart.products',['id'=>'1','quantity'=>'2']);
+    //     $request->session()->put('cart.1.quantity','100');
+    //     // $request->session()->push('cart.products',['id'=>'1','quantity'=>'2']);
     // }
     // public function getSession(Request $request){
     //     // $ls = $request->session()->get('cart');
     //     // // foreach($ls as $key =>$value){
     //     // //     $key =  (string)$key;
-    //     // //     $request->session()->forget('cart'.$key);
+    //     $request->session()->flush();
     //     // // }
+    //     $ls = $request->session()->get('cart');
+    //     dd($ls);
     // }
 }

@@ -58,8 +58,8 @@
                 <div class="row">
                 <div class="col-6">
                     <ul>
-                        @foreach($infors as $item)
-                            <li>{{$item->type}} {{$item->infor}}</li>
+                        @foreach($infors as $key => $item)
+                            <li><i class="{{$icon[$key]}}"></i>{{$item->type}} {{$item->infor}}</li>
                         @endforeach
                     </ul>
                 </div>
