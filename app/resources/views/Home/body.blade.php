@@ -7,7 +7,7 @@
             <div class="list">
             <ul>
                 @foreach($categories as $item)
-                <li><a href="#">{{$item->name}}</a></li>
+                <li><a href="{{route('home.find',['id'=>$item->id])}}">{{$item->name}}</a></li>
                 @endforeach
                 {{-- <li><a href="#">Sách giáo dục</a></li>
                 <li><a href="#">Ngôn tình</a></li> --}}

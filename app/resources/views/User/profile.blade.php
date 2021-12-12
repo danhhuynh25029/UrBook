@@ -8,7 +8,7 @@
                         <img class="img-thumbnail" src="{{asset('image/users.png')}}" width="100px">
                     </div>
                     <div class="col-12" style="margin-top: 20px;">
-                        <a href="" style="color:red"><i class="fas fa-sign-out-alt" style="font-size: 30px;"></i></a>
+                        <a href="{{route('signout')}}" style="color:red"><i class="fas fa-sign-out-alt" style="font-size: 30px;"></i></a>
                     </div>
                 </div>
                 <ul class="list-group" style="text-align: left;margin-top: 25px;">

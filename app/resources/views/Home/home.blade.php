@@ -16,7 +16,7 @@
             <!-- <div class="col-2" style="line-height: 50px;">
                 <h3>UrBook</h3>
             </div> -->
-            <div class="col">
+            <div class="col-4">
                 <ul class="nav" style="line-height: 50px;">
                     <li class="nav-item">
                         <a class="nav-link" href="{{route('home')}}" style="font-size:30px;">UrBook</a>
@@ -31,6 +31,13 @@
                       <a class="nav-link disabled">Liên hệ</a>
                     </li>
                   </ul>
+            </div>
+            <div class="col">
+                <form method="GET" action="{{route('home.find')}}"style="display: flex;align-items: center;margin-top: 10px;margin-left: 20px;">
+                    @csrf
+                    <input name="name" class="form-control" type="text" aria-label="default input example" style="display: inline !important;width: 50%;">
+                    <button type="submit" class="btn btn-primary">search</button>
+                </form>
             </div>
             <div class="col-3">
                 <ul class="nav" style="line-height: 50px;">  

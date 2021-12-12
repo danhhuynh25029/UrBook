@@ -21,6 +21,7 @@ class ProfileController extends Controller
     public function inforUser(Request $request){
         $id = $request->session()->get('id');
         $user = Users::find($id);
+        // dd($user);
         $infors = Information::all();
         return view('User/infor',[
             'infors'=>$infors,
@@ -28,6 +29,24 @@ class ProfileController extends Controller
             'icon'=>$this->icon
         ]);
     }
+    public function updateInfor(Request $request){
+        $name = $request->name;
+        $password = $request->password;
+        $phone = $request->phone;
+        $address = $request->address;
+        $email = $request->mail;
+        $id = $request->session()->get('id');
+        $user = Users::find($id);
+        $user->name = $name;
+        $user->email = $email;
+        $user->password = $password;
+        $user->address = $address;
+        $user->phone_number = $phone;
+        $user->save();
+
+        return redirect()->route('profile.infor');
+    }
+
     public function ordering(Request $request){
         $id = $request->session()->get('id');
         $user = Users::find($id);

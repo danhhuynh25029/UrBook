@@ -3,6 +3,7 @@
 <div class="container-fluid cart" style="width: 93%;">
 	<div class="row cart">
 		<div class="container-fluid">
+				@if($products)
 			<table class="table">
 			  <thead>
 			    <tr>
@@ -15,6 +16,7 @@
 			    </tr>
 			  </thead>
 			  <tbody>
+			  
 			  	@foreach($products as $key => $item)
 			    <tr>
 			      <th scope="row">{{$key}}</th>
@@ -34,6 +36,9 @@
 			    </tr>
 			  </tbody>
 			</table>
+			@else
+				<p>Vui lòng thêm sản phẩm vào giỏ</p>
+			@endif
 		</div>
 	</div>
 </div>

@@ -77,4 +77,27 @@ class HomeController extends Controller
             return redirect()->route('signin');
         }
     }
+    public function find(Request $request){
+        $id = $request->id;
+        $cates = Category::all();
+        $products = null;
+        if($id){
+            $products = Product::where('category_id',$id)->get();
+        }else{
+            $products = Product::where('name','like','%'.$request->name.'%')->get();
+        }
+        $infors = Information::all();
+        $id = $request->session()->get('id');
+        $user = Users::find($id);
+        // dd($products);
+        // $icon = ['fas fa-phone-alt','fab fa-facebook-square','far fa-envelope'];
+        return view('Home/books',[
+                'categories'=>$cates,
+                'products'=>$products,
+                'infors'=>$infors,
+                'user'=>$user,
+                'icon'=>$this->icon
+            ]
+        );
+    }
 }

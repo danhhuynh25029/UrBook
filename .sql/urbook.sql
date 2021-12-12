@@ -14,7 +14,7 @@ CREATE TABLE information(
     infor varchar(50),
     primary key(id)
 );
-INSERT INTO information(type,infor) VALUES('SDT','0789658670');
+INSERT INTO information(type,infor) VALUES('Số điện thoại','0789658670');
 INSERT INTO information(type,infor) VALUES('Facebook','https://www.facebook.com/danh250/');
 INSERT INTO information(type,infor) VALUES('Email','danhhuynh250@gmail.com');
 -- tạo bảng sản phẩm
@@ -31,6 +31,16 @@ CREATE TABLE products(
     updated_at datetime default now(),
     foreign key(category_id) references categories(id)
 );
+-- tạo bảng người quản trị website
+create table manager(
+    id int auto_increment not null,
+    name varchar(255) not null,
+    email varchar(255) not null,
+    password varchar(255) not null,
+    created_at datetime default current_timestamp(),
+    updated_at datetime default now(),
+    primary key(id)
+)
 -- tạo bảng người mua hàng
 drop table user;
 create table user(
@@ -38,6 +48,8 @@ create table user(
     name varchar(255) not null,
     email varchar(255) not null,
     password varchar(255) not null,
+    address varchar(255) not null,
+    phone_number varchar(255) not null,
     created_at datetime default current_timestamp(),
     updated_at datetime default now(),
 	primary key(id)

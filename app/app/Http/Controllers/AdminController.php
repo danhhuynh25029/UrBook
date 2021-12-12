@@ -8,43 +8,96 @@ use App\Models\Category;
 use App\Models\Information;
 use App\Models\Product;
 use App\Models\Users;
+use App\Models\Manager;
 class AdminController extends Controller
 {
+    public function check($name,$password){
+        // $name = $request->session()->get('name');
+        // $password = $request->session()->get('password');
+        $manager = Manager::where([['name','=',$name],['password','=',$password]])->get();
+        if(count($manager) != 0){
+            return true;    
+        }else{
+            return false;
+        }
+    }
     public function all(Request $request){
         $name = $request->session()->get('name');
         $password = $request->session()->get('password');
-        $user = Users::find(1);
-        if($user->name == $name && $user->password == $password){
-            echo 1;
+        // $user = Users::find(1);
+        if($this->check($name,$password) == true){
             return view('Admin/orders');    
         }else{
-            echo 1;
             return redirect()->route('signin');
         }
-        // return "Admin";
     }
-    public function infors(){
-        $infor = Information::all();
-        return view('Admin/infors',['infor'=>$infor]);
+    public function infors(Request $request){
+        $name = $request->session()->get('name');
+        $password = $request->session()->get('password');
+        // $user = Users::find(1);
+        if($this->check($name,$password) == true){
+            $infor = Information::all();
+            return view('Admin/infors',['infor'=>$infor]);  
+        }else{
+            return redirect()->route('signin');
+        }
     }
-    public function products(){
-        $product = Product::all();
-        return view('Admin/products',['products'=>$product]);
+    public function products(Request $request){
+        $name = $request->session()->get('name');
+        $password = $request->session()->get('password');
+        // $user = Users::find(1);
+        if($this->check($name,$password) == true){
+            $product = Product::all();
+            return view('Admin/products',['products'=>$product]);  
+        }else{
+            return redirect()->route('signin');
+        }
+        
     }
-    public function categories(){
-        // $cate = DB::table('categories')->get();
-        $ls = Category::all();
-        // dd($ls);
-        return view('Admin/categories',['cate'=>$ls]);
+    public function categories(Request $request){
+        $name = $request->session()->get('name');
+        $password = $request->session()->get('password');
+        // $user = Users::find(1);
+        if($this->check($name,$password) == true){
+             $ls = Category::all();
+             return view('Admin/categories',['cate'=>$ls]); 
+        }else{
+            return redirect()->route('signin');
+        }
+       
     }
-    public function orders(){
-        return view('Admin/orders');
+    public function orders(Request $request){
+        $name = $request->session()->get('name');
+        $password = $request->session()->get('password');
+        // $user = Users::find(1);
+        if($this->check($name,$password) == true){
+             return view('Admin/orders');
+        }else{
+            return redirect()->route('signin');
+        }
+        
     }
-    public function users(){
-        $users = Users::all();
-        return view('Admin/users',['users'=>$users]);
+    public function users(Request $request){
+        $name = $request->session()->get('name');
+        $password = $request->session()->get('password');
+        // $user = Users::find(1);
+        if($this->check($name,$password) == true){
+             $users = Users::all();
+            return view('Admin/users',['users'=>$users]);
+        }else{
+            return redirect()->route('signin');
+        }
+        
     }
-    public function edit(){
-        return view('Admin/form/editCate');
+    public function managers(Request $request){
+        $name = $request->session()->get('name');
+        $password = $request->session()->get('password');
+        // $user = Users::find(1);
+        if($this->check($name,$password) == true){
+             $managers = Manager::all();
+            return view('Admin/managers',['managers'=>$managers]);
+        }else{
+            return redirect()->route('signin');
+        }
     }
 }

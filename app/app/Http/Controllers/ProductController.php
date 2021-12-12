@@ -61,4 +61,7 @@ class ProductController extends Controller
             return redirect()->route('admin.products');
         }
     }
+    public function find(Request $request){
+        
+    }
 }

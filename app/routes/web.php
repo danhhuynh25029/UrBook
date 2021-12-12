@@ -10,6 +10,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\AccountController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\ProfileController;
+// use App\Http\Controllers\ManagerController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -29,6 +30,7 @@ Route::prefix('')->group(function () {
     Route::post('signin',[AccountController::class,'signin'])->name('signin');
     Route::get('signup',[AccountController::class,'signup'])->name('signup');
     Route::post('signup',[AccountController::class,'signup'])->name('signup');
+    Route::get('signout',[AccountController::class,'signout'])->name('signout');
     // test thu seesion
     Route::get('set',[AccountController::class,'setSession']);
     Route::get('get',[AccountController::class,'getSession']);
@@ -39,11 +41,14 @@ Route::prefix('home')->group(function(){
     Route::get('detail',[HomeController::class,'showDetail'])->name('home.detail');
     Route::get('cart',[HomeController::class,'showCart'])->name('home.cart');
     Route::get('profile',[ProfileController::class,'profile'])->name('profile');
+    Route::get('find',[HomeController::class,'find'])->name('home.find');
+    Route::post('find',[HomeController::class,'find'])->name('home.find');
 });
 // Quan ly trang thong tin nguoi dung
 Route::prefix('profile')->group(function(){
     Route::get('infor',[ProfileController::class,'inforUser'])->name('profile.infor');
     Route::get('ordering',[ProfileController::class,'ordering'])->name('profile.ordering');
+    Route::post('update',[ProfileController::class,'updateInfor'])->name('profile.update');
     Route::get('ordercompeleted',[ProfileController::class,'ordercompeleted'])->name('profile.ordercompeleted');
 });
 Route::prefix('home/cart')->group(function(){
@@ -59,6 +64,7 @@ Route::prefix('admin')->group(function(){
     Route::get('products',[AdminController::class,'products'])->name('admin.products');
     Route::get('categories',[AdminController::class,'categories'])->name('admin.categories');
     Route::get('orders',[AdminController::class,'orders'])->name('admin.orders');
+    Route::get('manager',[AdminController::class,'managers'])->name('admin.managers');
 });
 // The loai sach
 Route::prefix('admin/categories')->group(function(){

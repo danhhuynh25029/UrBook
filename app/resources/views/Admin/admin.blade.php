@@ -31,7 +31,10 @@
                     <li class="list-group-item"><a href="{{ route('admin.users')}}"><i class="far fa-user"></i>Khách hàng</a></li>
                     <li class="list-group-item"><a href="{{ route('admin.products')}}"><i class="fas fa-book"></i>Tất cả sản phẩm</a></li>
                     <li class="list-group-item"><a href="{{ route('admin.categories')}}"><i class="fas fa-dollar-sign"></i>Thể loại</a></li>
+                    <li class="list-group-item"><a href="{{ route('admin.managers')}}"><i class="fas fa-users-cog"></i>Người quản trị</a></li>
+                    
                     <li class="list-group-item"><a href="{{ route('admin.infors')}}"><i class="fas fa-info-circle"></i>Thông tin website</a></li>
+
                   </ul>
                   
             </div>
