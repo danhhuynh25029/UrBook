@@ -6,6 +6,10 @@
 			<form action="{{route('profile.update')}}" method="POST">
 			@csrf
 			<div class="mb-3">
+			  	<label for="exampleFormControlInput1" class="form-label">Họ và tên</label>
+			  	<input name="fullname"value="{{$user->fullname}}"type="text" class="form-control" id="exampleFormControlInput1" placeholder="">
+			</div>
+			<div class="mb-3">
 			  	<label for="exampleFormControlInput1" class="form-label">Tên đăng nhập</label>
 			  	<input name="name"value="{{$user->name}}"type="text" class="form-control" id="exampleFormControlInput1" placeholder="">
 			</div>

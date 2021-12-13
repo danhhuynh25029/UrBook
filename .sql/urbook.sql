@@ -42,36 +42,53 @@ create table manager(
     primary key(id)
 );
 insert into manager(name,email,password) value('admin','admin@gmail.com','123');
--- tạo bảng người mua hàng
+-- tạo tài khoản người dùng
 drop table user;
 create table user(
 	id int auto_increment not null,
     name varchar(255) not null,
     email varchar(255) not null,
     password varchar(255) not null,
-    address varchar(255) not null,
-    phone_number varchar(255) not null,
+    fullname varchar(255),
+    address varchar(255),
+    phone_number varchar(255),
     created_at datetime default current_timestamp(),
     updated_at datetime default now(),
 	primary key(id)
 );
+-- tạo người người mua hàng
+create table customers(
+	id int auto_increment not null,
+    email varchar(255),
+    fullname varchar(255) not null,
+    address varchar(255) not null,
+    phone_number varchar(255) not null,
+    note text,
+    created_at datetime default current_timestamp(),
+    updated_at datetime default now(),
+	primary key(id)
+);
+alter table user add column fullname varchar(255);
 insert into user(name,email,password) values('admin','admin@gmail.com','123');
 -- tạo bảng hóa đơn
-create table orders(
+drop table bills;
+create table bills(
 	id int auto_increment not null,
-    user_id int not null,
+    customer_id int not null,
     total int not null,
     created_at datetime default current_timestamp(),
     updated_at datetime default now(),
     primary key(id),
-    foreign key(user_id) references user(id)
+    foreign key(customer_id) references customers(id)
 );
-create table order_id(
+alter table orders add column status int;
+drop table bill_detail;
+create table bill_detail(
 	id int not null auto_increment,
     product_id int not null,
-    order_id int not null,
+    bill_id int not null,
     quantity int not null,
     primary key(id),
     foreign key(product_id) references products(id),
-    foreign key(order_id) references orders(id)
+    foreign key(bill_id) references bills(id)
 );

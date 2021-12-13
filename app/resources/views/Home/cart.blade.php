@@ -55,12 +55,12 @@
 <script type="text/javascript">
 	function show(key,price_d){
 		var quantity = document.getElementById(`quantity${key}`).value;
-		var total = document.getElementById(`price${key}`).innerHTML;
-		total = parseInt(price_d)*parseInt(quantity);
+		var d_price = document.getElementById(`price${key}`).innerHTML;
+		var total = parseInt(price_d)*parseInt(quantity);
 		s = parseInt(document.getElementById('sum').innerHTML);
-		s += parseInt(total);
+		s =s + (parseInt(total) - parseInt(d_price));
 		document.getElementById(`price${key}`).innerHTML = total;
-		// document.getElementById('sum').innerHTML = s;
+		document.getElementById('sum').innerHTML = s;
 		var ajax = new XMLHttpRequest();
 		ajax.onreadystatechange = function(){
 			if(this.readyState == 4 && this.status == 200){

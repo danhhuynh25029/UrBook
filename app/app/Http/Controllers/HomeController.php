@@ -8,6 +8,11 @@ use App\Models\Category;
 use App\Models\Product;
 use App\Models\Information;
 use App\Models\Users;
+use App\Models\Order;
+use App\Models\ProductOrder;
+use App\Models\Bill;
+use App\Models\BillDetail;
+use App\Models\Customer;
 class HomeController extends Controller
 {
     // Hien thi sach dang ban 
@@ -156,16 +161,48 @@ class HomeController extends Controller
             }else{
                 $user = null;
             }
+            $products = $request->session()->get('cart');
+            $s = 0;
+            foreach($products as $key => $value){
+                $s += $value['total'];
+            }
             // dd($products);
             // $icon = ['fas fa-phone-alt','fab fa-facebook-square','far fa-envelope'];
             return view('Home/order',[
                     'infors'=>$infors,
                     'user'=>$user,
-                    'icon'=>$this->icon
+                    'icon'=>$this->icon,
+                    'total'=>$s
                 ]
             );
         }else{
+                // $user_id = $request->session()->get('id');
+                $products = $request->session()->get('cart');
+                $s = 0;
+                foreach($products as $key => $value){
+                    $s += $value['total'];
+                }
+                $customer = new Customer;
+                $customer->fullname = $request->fullname;
+                $customer->address = $request->address;
+                $customer->phone_number = $request->phone;
+                $customer->note = $request->note;
+                $customer->save();
 
+                $bill = new Bill;
+                $bill->total = $s;
+                $bill->customer_id = $customer->id;
+                $bill->save();
+                foreach($products as $key =>$value){
+                    $bill_detal = new BillDetail;
+                    $bill_detal->bill_id = $bill->id;
+                    $bill_detal->product_id = $value['id'];
+                    $bill_detal->quantity = $value['quantity'];
+                    $bill_detal->save();
+                }
+                $request->session()->forget('cart');
+                return redirect()->route('home');
+                // dd($products);
         }
     }
 }

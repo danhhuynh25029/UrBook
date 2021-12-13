@@ -35,8 +35,10 @@ class ProfileController extends Controller
         $phone = $request->phone;
         $address = $request->address;
         $email = $request->mail;
+        $fullname = $request->fullname;
         $id = $request->session()->get('id');
         $user = Users::find($id);
+        $user->fullname = $fullname;
         $user->name = $name;
         $user->email = $email;
         $user->password = $password;

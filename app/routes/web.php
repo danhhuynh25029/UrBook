@@ -61,7 +61,7 @@ Route::prefix('home/cart')->group(function(){
 });
 // trang admin
 Route::prefix('admin')->group(function(){
-    Route::get('',[AdminController::class,'all'])->name('admin');
+    Route::get('',[AdminController::class,'orders'])->name('admin');
     Route::get('users',[AdminController::class,'users'])->name('admin.users');
     Route::get('infors',[AdminController::class,'infors'])->name('admin.infors');
     Route::get('products',[AdminController::class,'products'])->name('admin.products');

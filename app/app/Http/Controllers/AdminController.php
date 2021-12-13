@@ -9,6 +9,8 @@ use App\Models\Information;
 use App\Models\Product;
 use App\Models\Users;
 use App\Models\Manager;
+use App\Models\Bill;
+use App\Models\Customer;
 class AdminController extends Controller
 {
     public function check($name,$password){
@@ -26,7 +28,7 @@ class AdminController extends Controller
         $password = $request->session()->get('password');
         // $user = Users::find(1);
         if($this->check($name,$password) == true){
-            return view('Admin/orders');    
+            return view('Admin/bills');    
         }else{
             return redirect()->route('signin');
         }
@@ -71,7 +73,11 @@ class AdminController extends Controller
         $password = $request->session()->get('password');
         // $user = Users::find(1);
         if($this->check($name,$password) == true){
-             return view('Admin/orders');
+            $bills = Bill::all();
+            $customers = Customer::all();
+             return view('Admin/bills',
+                ['customers'=>$customers]
+            );
         }else{
             return redirect()->route('signin');
         }
