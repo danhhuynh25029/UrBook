@@ -16,8 +16,20 @@ class HomeController extends Controller
         $cates = Category::all();
         $products = Product::all();
         $infors = Information::all();
+        // Lay thong tin password name;
         $id = $request->session()->get('id');
-        $user = Users::find($id);
+        $name = $request->session()->get('name');
+        $password = $request->session()->get('password');
+        $user = Users::where([
+            ['name','=',$name],
+            ['password','=',$password],
+            ['id','=',$id]
+        ])->get();
+        if(count($user) > 0){
+            $user = $user[0];
+        }else{
+            $user = null;
+        }
         // $icon = ['fas fa-phone-alt','fab fa-facebook-square','far fa-envelope'];
         return view('Home/books',[
                 'categories'=>$cates,
@@ -33,7 +45,18 @@ class HomeController extends Controller
         $product = Product::find($request->id);
         $infors = Information::all();
         $id = $request->session()->get('id');
-        $user = Users::find($id);
+        $name = $request->session()->get('name');
+        $password = $request->session()->get('password');
+        $user = Users::where([
+            ['name','=',$name],
+            ['password','=',$password],
+            ['id','=',$id]
+        ])->get();
+        if(count($user) > 0){
+            $user = $user[0];
+        }else{
+            $user = null;
+        }
         return view('Home/detail',[
             'product'=>$product,
             'infors'=>$infors,
@@ -49,8 +72,14 @@ class HomeController extends Controller
         $prices = array();
         $total = array();
         $id = $request->session()->get('id');
-        $user = Users::find($id);
-        if($user){
+        $name = $request->session()->get('name');
+        $password = $request->session()->get('password');
+        $user = Users::where([
+            ['name','=',$name],
+            ['password','=',$password],
+            ['id','=',$id]
+        ])->get();
+        if(count($user) != 0){
             $ls = $request->session()->get('cart');
             // dd($ls);
             if($ls != null){
@@ -70,7 +99,7 @@ class HomeController extends Controller
                 'quantitys'=>$quantitys,
                 'prices'=>$prices,
                 'total'=>$total,
-                'user'=>$user,
+                'user'=>$user[0],
                 'icon'=>$this->icon
             ]);
         }else{
@@ -88,7 +117,18 @@ class HomeController extends Controller
         }
         $infors = Information::all();
         $id = $request->session()->get('id');
-        $user = Users::find($id);
+        $name = $request->session()->get('name');
+        $password = $request->session()->get('password');
+        $user = Users::where([
+            ['name','=',$name],
+            ['password','=',$password],
+            ['id','=',$id]
+        ])->get();
+        if(count($user) > 0){
+            $user = $user[0];
+        }else{
+            $user = null;
+        }
         // dd($products);
         // $icon = ['fas fa-phone-alt','fab fa-facebook-square','far fa-envelope'];
         return view('Home/books',[
@@ -99,5 +139,33 @@ class HomeController extends Controller
                 'icon'=>$this->icon
             ]
         );
+    }
+    public function order(Request $request){
+        if($request->isMethod('get')){
+            $infors = Information::all();
+            $id = $request->session()->get('id');
+            $name = $request->session()->get('name');
+            $password = $request->session()->get('password');
+            $user = Users::where([
+                ['name','=',$name],
+                ['password','=',$password],
+                ['id','=',$id]
+            ])->get();
+            if(count($user) > 0){
+                $user = $user[0];
+            }else{
+                $user = null;
+            }
+            // dd($products);
+            // $icon = ['fas fa-phone-alt','fab fa-facebook-square','far fa-envelope'];
+            return view('Home/order',[
+                    'infors'=>$infors,
+                    'user'=>$user,
+                    'icon'=>$this->icon
+                ]
+            );
+        }else{
+
+        }
     }
 }

@@ -35,12 +35,13 @@ CREATE TABLE products(
 create table manager(
     id int auto_increment not null,
     name varchar(255) not null,
-    email varchar(255) not null,
+    email varchar(255),
     password varchar(255) not null,
     created_at datetime default current_timestamp(),
     updated_at datetime default now(),
     primary key(id)
-)
+);
+insert into manager(name,email,password) value('admin','admin@gmail.com','123');
 -- tạo bảng người mua hàng
 drop table user;
 create table user(

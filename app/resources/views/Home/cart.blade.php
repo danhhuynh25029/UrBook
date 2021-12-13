@@ -22,22 +22,32 @@
 			      <th scope="row">{{$key}}</th>
 			      <td><img src="{{asset($item->image)}}" alt=""></td>
 			      <td>{{$item->name}}</td>
-			      <td><input onchange="show({{$key}},{{$prices[$key]}})"style="text-align: center;" id="quantity{{$key}}" type="number" name="" value="{{$quantitys[$key]}}"></td>
-			      <td><b style="color:blue" id="price{{$key}}">{{$total[$key]}}</b><b style="color: blue;"> vnđ</b></td>
+			      <td><input onchange="show({{$key}},{{$prices[$key]}})"style="text-align: center;" id="quantity{{$key}}" type="number" name="" min="1" max="{{$item->quantity}}" value="{{$quantitys[$key]}}"></td>
+			      <td><b style="color:blue" id="price{{$key}}">{{number_format($total[$key],0,',','.')}}</b><b style="color: blue;"> vnđ</b></td>
 			      <td><a href="{{route('cart.delete',['key'=>$key])}}"><button type="button" class="btn btn-danger">Xóa</button></a></td>
 			    </tr>
 			    @endforeach
+			    <?php 
+			    	$s = 0;
+			    	foreach($products as $key => $item){
+			    		$s += $total[$key];
+			    	}
+				?>
 			    <tr>
-			    	<td colspan="5">
-						<form style="float: right;">
+			    	<td colspan="6">
+			    		<div style="float: right;width: 100%;">
+			    				<h7 style="display: inline;">Thành tiền : <h5 style="display: inline;" id="sum">{{number_format($s,0,',','.')}}</h5> VND<h7>
+			    				<a href="{{route('home.order')}}"><button type="button" class="btn btn-primary" style="float: right;">Thanh toán</button></a>
+			    		</div>
+			    		{{-- form style="float: right;">
 							<button type="button" class="btn btn-primary">Thanh toán</button>
-						</form>
+						</form --}}
 			    	</td>
 			    </tr>
 			  </tbody>
 			</table>
 			@else
-				<p>Vui lòng thêm sản phẩm vào giỏ</p>
+				<h3 style="text-align: center;line-height:100vh	;">Vui lòng thêm sản phẩm vào giỏ</h3>
 			@endif
 		</div>
 	</div>
@@ -47,11 +57,14 @@
 		var quantity = document.getElementById(`quantity${key}`).value;
 		var total = document.getElementById(`price${key}`).innerHTML;
 		total = parseInt(price_d)*parseInt(quantity);
-		document.getElementById(`price${key}`).innerHTML = total 
+		s = parseInt(document.getElementById('sum').innerHTML);
+		s += parseInt(total);
+		document.getElementById(`price${key}`).innerHTML = total;
+		// document.getElementById('sum').innerHTML = s;
 		var ajax = new XMLHttpRequest();
 		ajax.onreadystatechange = function(){
 			if(this.readyState == 4 && this.status == 200){
-				console.log(this.responseText);
+				// console.log(this.responseText);
 			}
 		}
 		ajax.open('GET',`{{route('cart.update')}}?key=${key}&quantity=${quantity}&total=${total}`,true);

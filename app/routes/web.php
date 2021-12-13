@@ -10,6 +10,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\AccountController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ManagerController;
 // use App\Http\Controllers\ManagerController;
 /*
 |--------------------------------------------------------------------------
@@ -43,6 +44,8 @@ Route::prefix('home')->group(function(){
     Route::get('profile',[ProfileController::class,'profile'])->name('profile');
     Route::get('find',[HomeController::class,'find'])->name('home.find');
     Route::post('find',[HomeController::class,'find'])->name('home.find');
+    Route::get('order',[HomeController::class,'order'])->name('home.order');
+    Route::post('order',[HomeController::class,'order'])->name('home.order');
 });
 // Quan ly trang thong tin nguoi dung
 Route::prefix('profile')->group(function(){
@@ -64,7 +67,7 @@ Route::prefix('admin')->group(function(){
     Route::get('products',[AdminController::class,'products'])->name('admin.products');
     Route::get('categories',[AdminController::class,'categories'])->name('admin.categories');
     Route::get('orders',[AdminController::class,'orders'])->name('admin.orders');
-    Route::get('manager',[AdminController::class,'managers'])->name('admin.managers');
+    Route::get('managers',[AdminController::class,'managers'])->name('admin.managers');
 });
 // The loai sach
 Route::prefix('admin/categories')->group(function(){
@@ -89,4 +92,12 @@ Route::prefix('admin/products')->group(function(){
     Route::get('update',[ProductController::class,'update'])->name('products.update');
     Route::post('update',[ProductController::class,'update'])->name('products.update');
     Route::get('delete',[ProductController::class,'delete'])->name('products.delete');
+});
+
+Route::prefix('admin/managers')->group(function(){
+    Route::get('insert',[ManagerController::class,'insert'])->name('managers.insert');
+    Route::post('insert',[ManagerController::class,'insert'])->name('managers.insert');
+    Route::get('update',[ManagerController::class,'update'])->name('managers.update');
+    Route::post('update',[ManagerController::class,'update'])->name('managers.update');
+    Route::get('delete',[ManagerController::class,'delete'])->name('managers.delete');
 });
