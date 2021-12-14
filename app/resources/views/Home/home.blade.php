@@ -42,7 +42,14 @@
             <div class="col-3">
                 <ul class="nav" style="line-height: 50px;">  
                     <li class="nav-item">
-                        <a class="nav-link" href="{{route('home.cart')}}"><i class="fas fa-shopping-cart"></i>Giỏ hàng</a>
+
+                        <a class="nav-link" href="{{route('home.cart')}}"><button type="button" class="button"><i class="fas fa-shopping-cart"></i>Giỏ hàng 
+                            @if($cart)
+                            <span class="badge bg-danger">{{count($cart)}}</span>
+                            @else
+                            
+                            @endif
+                        </button></a>
                     </li>
                     <li class="nav-item">
                         @if($user != null)

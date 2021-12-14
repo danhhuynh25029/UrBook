@@ -11,14 +11,33 @@ class CartController extends Controller
         $price_d = $request->price;
         $quantity = $request->quantity;
         $total = (int)$price_d*(int)$quantity;
-        $request->session()->push('cart',[
-            'id'=>$request->id,
-            'quantity'=>$quantity,
-            'total'=>$total,
-            'price_d'=>$price_d
-            ]
-        );
+        if($this->find($request,$request->id) == -1){
+            $request->session()->push('cart',[
+                'id'=>$request->id,
+                'quantity'=>$quantity,
+                'total'=>$total,
+                'price_d'=>$price_d
+                ]
+            );
+        }else{
+            $key = $this->find($request,$request->id);
+            $product = $request->session()->get('cart.'.$key);
+            $total = $product['total'] + $total; 
+            $quantity = $product['quantity'] + $quantity;
+            $request->session()->put('cart.'.$key.'.total',$total);
+            $request->session()->put('cart.'.$key.'.quantity',$quantity);
+        }
         return redirect()->route('home');
+    }
+    public function find($request,$id){
+        $cart = $request->session()->get('cart');
+        // dd($cart);
+        foreach($cart as $key => $item){
+            if($item['id'] == $id){
+                return $key;
+            }
+        }
+        return -1;
     }
     public function update(Request $request){
         // $key = $request->key;

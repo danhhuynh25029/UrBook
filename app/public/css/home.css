@@ -23,7 +23,13 @@ body{
 }
 .header a{
     color: white;
-}   
+}  
+.header .button{
+    background-color: #079992;
+    border: none;
+    outline: none;
+    color: white;
+}
 /* style body ne */
 /* categories */
 .body{
@@ -142,4 +148,8 @@ body{
 .detail .row .col form table tr button{
     width: 50%;
     /*height: 0px;*/
+}
+/* phan trang */
+.pagi{
+    margin: 0 auto;
 }

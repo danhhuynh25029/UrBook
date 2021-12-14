@@ -19,7 +19,7 @@ class HomeController extends Controller
     public $icon = ['fas fa-phone-alt','fab fa-facebook-square','far fa-envelope'];
     public function homePage(Request $request){
         $cates = Category::all();
-        $products = Product::all();
+        $products = Product::paginate(12);
         $infors = Information::all();
         // Lay thong tin password name;
         $id = $request->session()->get('id');
@@ -30,18 +30,21 @@ class HomeController extends Controller
             ['password','=',$password],
             ['id','=',$id]
         ])->get();
+        // $c = $request->session()->get('cart');
         if(count($user) > 0){
             $user = $user[0];
         }else{
             $user = null;
         }
+        $cart = $request->session()->get('cart');
         // $icon = ['fas fa-phone-alt','fab fa-facebook-square','far fa-envelope'];
         return view('Home/books',[
                 'categories'=>$cates,
                 'products'=>$products,
                 'infors'=>$infors,
                 'user'=>$user,
-                'icon'=>$this->icon
+                'icon'=>$this->icon,
+                'cart'=>$cart
             ]
         );
     }
@@ -62,11 +65,13 @@ class HomeController extends Controller
         }else{
             $user = null;
         }
+         $cart = $request->session()->get('cart');
         return view('Home/detail',[
             'product'=>$product,
             'infors'=>$infors,
             'user'=>$user,
-            'icon'=>$this->icon
+            'icon'=>$this->icon,
+            'cart'=>$cart
         ]);
     }
     // hien thi gio hang
@@ -98,6 +103,7 @@ class HomeController extends Controller
                     }
                 }   
             }
+             $cart = $request->session()->get('cart');
             return view('Home/cart',[
                 'infors'=>$infors,
                 'products'=>$products,
@@ -105,7 +111,8 @@ class HomeController extends Controller
                 'prices'=>$prices,
                 'total'=>$total,
                 'user'=>$user[0],
-                'icon'=>$this->icon
+                'icon'=>$this->icon,
+                'cart'=>$cart
             ]);
         }else{
             return redirect()->route('signin');
@@ -136,12 +143,14 @@ class HomeController extends Controller
         }
         // dd($products);
         // $icon = ['fas fa-phone-alt','fab fa-facebook-square','far fa-envelope'];
+         $cart = $request->session()->get('cart');
         return view('Home/books',[
                 'categories'=>$cates,
                 'products'=>$products,
                 'infors'=>$infors,
                 'user'=>$user,
-                'icon'=>$this->icon
+                'icon'=>$this->icon,
+                'cart'=>$cart
             ]
         );
     }
@@ -168,11 +177,13 @@ class HomeController extends Controller
             }
             // dd($products);
             // $icon = ['fas fa-phone-alt','fab fa-facebook-square','far fa-envelope'];
+            $cart = $request->session()->get('cart');
             return view('Home/order',[
                     'infors'=>$infors,
                     'user'=>$user,
                     'icon'=>$this->icon,
-                    'total'=>$s
+                    'total'=>$s,
+                    'cart'=>$cart
                 ]
             );
         }else{

@@ -16,21 +16,25 @@ class ProfileController extends Controller
         $id = $request->session()->get('id');
         $user = Users::find($id);
         $infors = Information::all();
+        $cart = $request->session()->get('cart');
         return view('User/profile',[
             'infors'=>$infors,
             'user'=>$user,
-            'icon'=>$this->icon
+            'icon'=>$this->icon,
+            'cart'=>$cart
         ]);
     }
     public function inforUser(Request $request){
         $id = $request->session()->get('id');
         $user = Users::find($id);
         // dd($user);
+         $cart = $request->session()->get('cart');
         $infors = Information::all();
         return view('User/infor',[
             'infors'=>$infors,
             'user'=>$user,
-            'icon'=>$this->icon
+            'icon'=>$this->icon,
+            'cart'=>$cart
         ]);
     }
     public function updateInfor(Request $request){
@@ -62,13 +66,15 @@ class ProfileController extends Controller
             $b = Bill::where('customer_id',$item->id)->get();
             $bills[$key] = $b;
         }
+         $cart = $request->session()->get('cart');
         $infors = Information::all();
         return view('User/ordering',[
             'infors'=>$infors,
             'customers'=>$customers,
             'bills'=>$bills,
             'user'=>$user,
-            'icon'=>$this->icon
+            'icon'=>$this->icon,
+            'cart'=>$cart
         ]);
         // dd($customers);
     }
@@ -82,12 +88,14 @@ class ProfileController extends Controller
             $bills[$key] = $b;
         }
         $infors = Information::all();
+         $cart = $request->session()->get('cart');
         return view('User/ordercompeleted',[
             'infors'=>$infors,
             'customers'=>$customers,
             'bills'=>$bills,
             'user'=>$user,
-            'icon'=>$this->icon
+            'icon'=>$this->icon,
+            'cart'=>$cart
         ]);
     }
 }

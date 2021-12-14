@@ -29,7 +29,7 @@
 
 @endsection
 @section('panigation')
-<nav aria-label="Page navigation example" style="margin: 0 auto;">
+{{-- <nav aria-label="Page navigation example" style="margin: 0 auto;">
     <ul class="pagination" style="color:#079992;">
       <li class="page-item">
         <a class="page-link" href="#" aria-label="Previous">
@@ -45,5 +45,8 @@
         </a>
       </li>
     </ul>
-  </nav>
+  </nav> --}}
+  <div class="pagi">
+  {{ $products->render() }}
+  </div>
 @endsection
