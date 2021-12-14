@@ -89,6 +89,7 @@ class AdminController extends Controller
         // $user = Users::find(1);
         if($this->check($name,$password) == true){
              $users = Users::all();
+
             return view('Admin/users',['users'=>$users]);
         }else{
             return redirect()->route('signin');

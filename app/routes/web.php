@@ -11,6 +11,7 @@ use App\Http\Controllers\AccountController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ManagerController;
+use App\Http\Controllers\BillController;
 // use App\Http\Controllers\ManagerController;
 /*
 |--------------------------------------------------------------------------
@@ -68,6 +69,12 @@ Route::prefix('admin')->group(function(){
     Route::get('categories',[AdminController::class,'categories'])->name('admin.categories');
     Route::get('orders',[AdminController::class,'orders'])->name('admin.orders');
     Route::get('managers',[AdminController::class,'managers'])->name('admin.managers');
+    Route::get('bills',[AdminController::class,'orders'])->name('admin.bills');
+});
+// Hoa don
+Route::prefix('admin/bills')->group(function(){
+    Route::get('update',[BillController::class,'update'])->name('bills.update');
+    Route::get('find',[BillController::class,'find'])->name('bills.find');
 });
 // The loai sach
 Route::prefix('admin/categories')->group(function(){

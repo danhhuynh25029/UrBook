@@ -182,21 +182,30 @@ class HomeController extends Controller
                 foreach($products as $key => $value){
                     $s += $value['total'];
                 }
+                // tao nguoi mua
                 $customer = new Customer;
                 $customer->fullname = $request->fullname;
                 $customer->address = $request->address;
                 $customer->phone_number = $request->phone;
                 $customer->note = $request->note;
+                $customer->user_id = $request->session()->get('id');
+                $customer->status = 0;
                 $customer->save();
-
+                // tao hoa don
                 $bill = new Bill;
                 $bill->total = $s;
                 $bill->customer_id = $customer->id;
                 $bill->save();
+                // tao chi tiet hoa don
                 foreach($products as $key =>$value){
                     $bill_detal = new BillDetail;
                     $bill_detal->bill_id = $bill->id;
                     $bill_detal->product_id = $value['id'];
+                    // cap nhat so luong san pham
+                    $product = Product::find($value['id']);
+                    $product->quantity = (int)$product->quantity - (int)$value['quantity'];
+                    $product->save();
+                    
                     $bill_detal->quantity = $value['quantity'];
                     $bill_detal->save();
                 }

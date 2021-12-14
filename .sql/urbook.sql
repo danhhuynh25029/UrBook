@@ -57,17 +57,26 @@ create table user(
 	primary key(id)
 );
 -- tạo người người mua hàng
+drop table customers;
 create table customers(
 	id int auto_increment not null,
     email varchar(255),
+    user_id int not null,
     fullname varchar(255) not null,
     address varchar(255) not null,
+    status int not null,
     phone_number varchar(255) not null,
     note text,
     created_at datetime default current_timestamp(),
     updated_at datetime default now(),
-	primary key(id)
+	primary key(id),
+    foreign key(user_id) references user(id)
 );
+-- them code trang thai don hang
+use urbook;
+alter table customers add column user_id int not null;
+alter table customers add column status int;
+-- add column full name;
 alter table user add column fullname varchar(255);
 insert into user(name,email,password) values('admin','admin@gmail.com','123');
 -- tạo bảng hóa đơn

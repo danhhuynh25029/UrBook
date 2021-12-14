@@ -13,8 +13,8 @@
                 </div>
                 <ul class="list-group" style="text-align: left;margin-top: 25px;">
                     <li class="list-group-item"><a href="{{ route('profile.infor')}}">Thông tin cá nhân</a></li>
-                    <li class="list-group-item"><a href="{{ route('profile.ordering')}}">Đơn hàng đã hoàn thành</a></li>
-                    <li class="list-group-item"><a href="{{ route('profile.ordercompeleted')}}">Đơn hàng đang giao</a></li>
+                    <li class="list-group-item"><a href="{{ route('profile.ordercompeleted')}}">Đơn hàng đã hoàn thành</a></li>
+                    <li class="list-group-item"><a href="{{ route('profile.ordering')}}">Đơn hàng đang giao</a></li>
                   </ul>
             </div>
             <div class="col content">
