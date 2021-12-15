@@ -61,7 +61,8 @@ class HomeController extends Controller
             ['password','=',$password],
             ['id','=',$id]
         ])->get();
-        $comments = Comment::where('product_id',$request->id)->get();
+        $comments = Comment::where('product_id',$request->id)->paginate(5);
+        // dd($comments);
         $user_name = [];
         foreach($comments as $key => $item){
             $u = Users::find($item->user_id);
@@ -132,9 +133,9 @@ class HomeController extends Controller
         $cates = Category::all();
         $products = null;
         if($id){
-            $products = Product::where('category_id',$id)->get();
+            $products = Product::where('category_id',$id)->paginate(12);
         }else{
-            $products = Product::where('name','like','%'.$request->name.'%')->get();
+            $products = Product::where('name','like','%'.$request->name.'%')->paginate(12);
         }
         $infors = Information::all();
         $id = $request->session()->get('id');
