@@ -12,6 +12,7 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ManagerController;
 use App\Http\Controllers\BillController;
+use App\Http\Controllers\CommentController;
 // use App\Http\Controllers\ManagerController;
 /*
 |--------------------------------------------------------------------------
@@ -47,6 +48,7 @@ Route::prefix('home')->group(function(){
     Route::post('find',[HomeController::class,'find'])->name('home.find');
     Route::get('order',[HomeController::class,'order'])->name('home.order');
     Route::post('order',[HomeController::class,'order'])->name('home.order');
+    Route::post('comment',[CommentController::class,'insert'])->name('home.comment');
 });
 // Quan ly trang thong tin nguoi dung
 Route::prefix('profile')->group(function(){

@@ -101,3 +101,13 @@ create table bill_detail(
     foreign key(product_id) references products(id),
     foreign key(bill_id) references bills(id)
 );
+-- tao bang chua thong tin nhung binh luan
+create table comments(
+	id int auto_increment not null,
+    user_id int not null,
+    product_id int not null,
+    content text not null,
+    foreign key(user_id) references user(id),
+    foreign key(product_id) references products(id),
+    primary key(id)
+);

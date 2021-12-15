@@ -32,12 +32,16 @@ class CartController extends Controller
     public function find($request,$id){
         $cart = $request->session()->get('cart');
         // dd($cart);
-        foreach($cart as $key => $item){
-            if($item['id'] == $id){
-                return $key;
+        if($cart == null){
+            return -1;
+        }else{
+            foreach($cart as $key => $item){
+                if($item['id'] == $id){
+                    return $key;
+                }
             }
+            return -1;
         }
-        return -1;
     }
     public function update(Request $request){
         // $key = $request->key;

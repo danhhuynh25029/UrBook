@@ -70,18 +70,21 @@
         <div class="row footer">
             <div class="container">
                 <div class="row">
-                <div class="col-6">
+                <div class="col-7">
+                    <div style="width: 70%;margin:0 auto;">
                     <ul>
+                        <li style="margin-bottom:10px;text-align: center;"><h3>Urbook</h3></li>
                         @foreach($infors as $key => $item)
-                            <li><i class="{{$icon[$key]}}"></i>{{$item->type}} {{$item->infor}}</li>
+                            <li style="margin-top: 10px;"><i class="{{$icon[$key]}}"></i>{{$item->infor}}</li>
                         @endforeach
                     </ul>
+                    </div>
                 </div>
-                <div class="col-6">
-                    <form>
+                <div class="col-5">
+                    <form method="POST">
                         <div class="mb-3">
                           <label for="exampleFormControlInput1" class="form-label">Địa chỉ email</label>
-                          <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+                          <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="">
                         </div>
                         <div class="mb-3">
                           <label for="exampleFormControlTextarea1" class="form-label">Nội dung</label>

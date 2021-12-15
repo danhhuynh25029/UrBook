@@ -13,6 +13,7 @@ use App\Models\ProductOrder;
 use App\Models\Bill;
 use App\Models\BillDetail;
 use App\Models\Customer;
+use App\Models\Comment;
 class HomeController extends Controller
 {
     // Hien thi sach dang ban 
@@ -60,6 +61,12 @@ class HomeController extends Controller
             ['password','=',$password],
             ['id','=',$id]
         ])->get();
+        $comments = Comment::where('product_id',$request->id)->get();
+        $user_name = [];
+        foreach($comments as $key => $item){
+            $u = Users::find($item->user_id);
+            $user_name[$key] = $u->name;
+        }
         if(count($user) > 0){
             $user = $user[0];
         }else{
@@ -71,7 +78,9 @@ class HomeController extends Controller
             'infors'=>$infors,
             'user'=>$user,
             'icon'=>$this->icon,
-            'cart'=>$cart
+            'cart'=>$cart,
+            'comments'=>$comments,
+            'user_name'=>$user_name
         ]);
     }
     // hien thi gio hang

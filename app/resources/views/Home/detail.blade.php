@@ -38,5 +38,26 @@
                 </form>
             </div>
         </div>
+        <div class="row">
+            <div class="col" style="margin-bottom: 10px;">
+                <h3 style="text-align: center;">Review</h3>
+                <div class="cmt">
+                    <ul>
+                        @foreach($comments as $key => $item)
+                        <li><b><i class="far fa-user"></i>{{$user_name[$key]}} :</b> {{$item->content}}</li>
+                        @endforeach
+                    </ul>
+                </div>
+                <form style="width: 70%;margin:10px auto;" method="POST" action="{{route('home.comment')}}">
+                    @csrf
+                <div class="mb-3">
+                  <input type="text" name="product" style="display: none;" value="{{$product->id}}">
+                  <input type="text" name="user" style="display: none;" value="{{$user->id}}">
+                  <textarea style="height: 100px;" name="content" class="form-control review" id="exampleFormControlTextarea1" rows="3"></textarea>
+                  <button type="submit" style="float: right;margin-top: 5px;"class="btn btn-primary">Bình luận</button>
+                </div>
+                </form>
+            </div>
+        </div>
     </div>
 @endsection

@@ -5,6 +5,12 @@
 i{
     margin-right: 5px;
 }
+.review{
+    margin: 0 auto;
+    resize: none;
+    /*width: 70% !important;*/
+    height: 200px;
+}
 body{
     background-color: rgb(228, 226, 226) !important;
     /* height: 100%;
@@ -121,6 +127,28 @@ body{
     margin-right: auto;
     width: 400px;
     height: 370px;
+}
+/*style binh luan*/
+.detail .cmt{
+    width: 90%;
+    margin: 0 auto;
+    /*border: 1px solid rgb(240, 237, 237);*/
+    border-radius: 5px 5px;
+}
+.detail .cmt ul{
+    list-style: none;
+}
+.detail .cmt ul li{
+    padding: 5px 7px;
+    margin-top: 10px;
+    width: 90%;
+    margin-left: 5px;
+    border-radius: 5px 5px;
+    background-color:rgb(240, 237, 237);
+    /*border: 1px solid #555;*/
+}
+.detail .cmt ul li b{
+    color: blue;
 }
 .detail .row{
     padding-top: 30px;
