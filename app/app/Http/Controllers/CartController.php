@@ -3,11 +3,24 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Models\Users;
 class CartController extends Controller
 {
+     public function check($name,$password){
+        // $name = $request->session()->get('name');
+        // $password = $request->session()->get('password');
+        $user = Users::where([['name','=',$name],['password','=',$password]])->get();
+        if(count($manager) != 0){
+            return true;    
+        }else{
+            return false;
+        }
+    }
     public function add(Request $request){
        // dd($request->input());
+        $password = $request->session()->get('password');
+        $user = $request->session()->get('name');
+        if($this->check($name,$password) == true){
         $price_d = $request->price;
         $quantity = $request->quantity;
         $total = (int)$price_d*(int)$quantity;
@@ -28,6 +41,9 @@ class CartController extends Controller
             $request->session()->put('cart.'.$key.'.quantity',$quantity);
         }
         return redirect()->route('home');
+        }else{
+            return redirect()->route('signin');
+        }
     }
     public function find($request,$id){
         $cart = $request->session()->get('cart');

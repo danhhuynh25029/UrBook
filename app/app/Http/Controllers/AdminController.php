@@ -18,7 +18,7 @@ class AdminController extends Controller
         // $password = $request->session()->get('password');
         $manager = Manager::where([['name','=',$name],['password','=',$password]])->get();
         if(count($manager) != 0){
-            return true;    
+            return $manager[0];    
         }else{
             return false;
         }
@@ -76,7 +76,7 @@ class AdminController extends Controller
             $bills = Bill::all();
             $customers = Customer::all();
              return view('Admin/bills',
-                ['customers'=>$customers]
+                ['customers'=>$customers,'s'=>-1]
             );
         }else{
             return redirect()->route('signin');

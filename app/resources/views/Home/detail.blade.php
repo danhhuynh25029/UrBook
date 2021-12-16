@@ -29,7 +29,7 @@
                         <td><input type="text" name="price" value="{{$product->price}}" style="display: none;"></td>
                         </tr>
                         <tr>
-                        <td><input type="number" name="quantity"  value="1" step="1" value="{{$product->quantity}}"></td>
+                        <td><input type="number" min="1" max="{{$product->quantity}}" name="quantity"  value="1" step="1"></td>
                         </tr>
                         <tr>
                         <td><button type="submit" class="btn btn-primary">Mua</button></td>

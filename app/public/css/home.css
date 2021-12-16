@@ -5,6 +5,13 @@
 i{
     margin-right: 5px;
 }
+a{
+    color: white;
+    /*pointer-events: none;*/
+}
+a:hover{
+    color: white !important;
+}
 .review{
     margin: 0 auto;
     resize: none;
@@ -52,6 +59,13 @@ body{
     text-align: center;
     margin-top: 10px;
 }
+.body .categories a{
+    text-decoration: none;
+    color: black;
+}
+.body .categories a:hover{
+    color: black !important;
+}
 .body .categories .list ul li{
     height: 30px;
     line-height: 30px;
@@ -79,7 +93,10 @@ body{
     margin-top: 5px;
     width: 229px;
     height: 200px;
-} 
+}
+.item a:hover{
+    color: black !important;
+}
 .item .price{
     color:blue;
 }

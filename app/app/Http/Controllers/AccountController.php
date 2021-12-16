@@ -25,8 +25,8 @@ class AccountController extends Controller
                     return redirect()->route('admin');
             }else if(count($user) > 0){
                     // tao cookie luu thong tin nguoi dung
-                    $cookie_name = Cookie::make('name',$name);
-                    $cookie_pass = Cookie::make('password',$password);
+                    $cookie_name = Cookie::make('name',$name,60*60);
+                    $cookie_pass = Cookie::make('password',$password,60*60);
                     // tao session kiem tra
                     $request->session()->put('id',$user[0]->id);
                     $request->session()->put('name',$name);

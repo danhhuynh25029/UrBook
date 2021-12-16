@@ -68,9 +68,9 @@
         <!-- footer ne -->
     <div class="container-fluid">
         <div class="row footer">
-            <div class="container">
+            <div class="container-fluid">
                 <div class="row">
-                <div class="col-7">
+                <div class="col-5">
                     <div style="width: 70%;margin:0 auto;">
                     <ul>
                         <li style="margin-bottom:10px;text-align: center;"><h3>Urbook</h3></li>
@@ -80,7 +80,13 @@
                     </ul>
                     </div>
                 </div>
-                <div class="col-5">
+                <div class="col-4">
+                    <ul>
+                        <li><h3>Phương thức thanh toán</h3></li>
+                        <li style="margin-top: 10px;">Trực tiếp</li>                
+                    </ul>
+                </div>
+                <div class="col-3">
                     <form method="POST">
                         <div class="mb-3">
                           <label for="exampleFormControlInput1" class="form-label">Địa chỉ email</label>

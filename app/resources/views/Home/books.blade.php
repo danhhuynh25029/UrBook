@@ -9,7 +9,8 @@
     </div> -->
     <!-- Noi hien thi san pham ne -->
     <div class="row">
-        @foreach ($products as $item)  
+        @foreach ($products as $item)
+        @if($item->quantity > 0)
         <div class="col-3 item">
           <a href="{{route('home.detail',['id'=>$item->id])}}" style="text-decoration:none;color:black;">
             <div class="card" >
@@ -19,10 +20,11 @@
                     <p class="card-text price"><b>Giá : {{ number_format($item->price,0,',','.')}} vnđ</b></p>
                     <!-- <a href="#" class="card-link">Thêm vào giỏ</a>
                     <a href="#" class="card-link">Xem chi tiết</a> -->
-                  </div>
+                </div>
               </div>
             </a>
         </div>
+        @endif
         @endforeach
     </div>
 </div>

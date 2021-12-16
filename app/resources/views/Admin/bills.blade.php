@@ -1,5 +1,20 @@
 @extends('Admin.admin')
 @section('content')
+<?php 
+  $status = array('-1'=>'Tất cả','0'=>'Còn chờ','1'=>'Đang đóng gói','2'=>'Đang giao','3'=>'Đã hoàn thành');
+?>
+<form action="{{route('bills.findAll')}}" method="GET" style="margin:10px 0;">
+  <label>Trạng thái</label>
+  <select name="status" onchange="this.form.submit()">
+    @foreach($status as $key => $value )
+      @if($key == $s)
+          <option value="{{$key}}" selected>{{$value}}</option>
+      @else
+          <option value="{{$key}}">{{$value}}</option>
+      @endif
+    @endforeach
+  </select>
+</form>
 <table class="table">
     <thead>
       <tr>
@@ -23,9 +38,6 @@
           <td>{{$item->created_at}}</td>
           <td><form>
             <select onchange="status({{$item->id}})" id="sta">
-              <?php 
-              $status = array('0'=>'Còn chờ','1'=>'Đang đóng gói','2'=>'Đang giao','3'=>'Đã hoàn thành')
-              ?>
               @foreach($status as $key => $value )
               @if($key == $item->status)
                 <option value="{{$key}}" selected>{{$value}}</option>

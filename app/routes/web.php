@@ -77,6 +77,7 @@ Route::prefix('admin')->group(function(){
 Route::prefix('admin/bills')->group(function(){
     Route::get('update',[BillController::class,'update'])->name('bills.update');
     Route::get('find',[BillController::class,'find'])->name('bills.find');
+    Route::get('findAll',[BillController::class,'findAll'])->name('bills.findAll');
 });
 // The loai sach
 Route::prefix('admin/categories')->group(function(){
