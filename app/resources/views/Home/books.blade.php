@@ -8,6 +8,14 @@
         </div>
     </div> -->
     <!-- Noi hien thi san pham ne -->
+    <div class="find">
+        <nav class="nav">
+          <a class="nav-link active" aria-current="page" href="#">Bán chạy</a>
+          <a class="nav-link" href="#">Giá thấp</a>
+          <a class="nav-link" href="#">Giá cao</a>
+          {{-- <a class="nav-link disabled">Disabled</a> --}}
+        </nav>
+    </div>
     <div class="row">
         @foreach ($products as $item)
         @if($item->quantity > 0)

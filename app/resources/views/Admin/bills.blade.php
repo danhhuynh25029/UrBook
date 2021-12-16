@@ -35,7 +35,7 @@
           <td>{{$item->fullname}}</td>
           <td>{{$item->phone_number}}</td>
           <td>{{$item->address}}</td>
-          <td>{{$item->created_at}}</td>
+          <td>{{date("d/m/Y", strtotime($item->created_at))}}</td>
           <td><form>
             <select onchange="status({{$item->id}})" id="sta">
               @foreach($status as $key => $value )

@@ -11,17 +11,12 @@
 </head>
 <body>
     <div class="container-fluid">
-        <div class="row head">
-            <div class="col">
-            <nav id="navbar-example2" class="navbar  px-3">
-                <a class="navbar-brand" href="{{route('home')}}" style="font-size: 25px;">UrBook</a>
-                <ul class="nav nav-pills">
-                  <li class="nav-item">
-                    <a href="#"><i class="far fa-user"></i>admin</a>
-                    <!-- <a class="nav-link" href="#scrollspyHeading2">admin</a> -->
-                  </li>
-                </ul>
-              </nav>
+        <div class="row head" style="height: 50px;">
+            <div class="col" style="line-height: 50px;">
+            <a href="#" style="color: white;font-size: 20px;"><i class="far fa-user"></i>admin</a>
+            </div>
+            <div class="col" style="line-height: 50px;">
+                <a href="{{route('signout')}}" style="color:white;float: right;font-size: 20px;"><i class="fas fa-sign-out-alt" style="margin-right: 10px;"></i>logout</a>
             </div>
         </div>
         <div class="row body">
@@ -30,10 +25,15 @@
                     <li class="list-group-item"><a href="{{ route('admin.orders')}}"><i class="fas fa-list"></i>Sách hóa đơn</a></li>
                     <li class="list-group-item"><a href="{{ route('admin.users')}}"><i class="far fa-user"></i>Khách hàng</a></li>
                     <li class="list-group-item"><a href="{{ route('admin.products')}}"><i class="fas fa-book"></i>Tất cả sản phẩm</a></li>
-                    <li class="list-group-item"><a href="{{ route('admin.categories')}}"><i class="fas fa-dollar-sign"></i>Thể loại</a></li>
+                    <li class="list-group-item"><a href="{{ route('admin.categories')}}"><i class="fas fa-ellipsis-v"></i>Thể loại</a></li>
+                    <li class="list-group-item">
+                        <a href="{{route('admin.feedbacks')}}"><i class="far fa-comments"></i>Phản hồi</a>
+                    </li>
                     <li class="list-group-item"><a href="{{ route('admin.managers')}}"><i class="fas fa-users-cog"></i>Người quản trị</a></li>
                     
                     <li class="list-group-item"><a href="{{ route('admin.infors')}}"><i class="fas fa-info-circle"></i>Thông tin website</a></li>
+                    <li class="list-group-item"><a href="{{ route('admin.infors')}}"><i class="fas fa-dollar-sign"></i>Thống kê</a></li>
+
 
                   </ul>
                   

@@ -225,6 +225,7 @@ class HomeController extends Controller
                     // cap nhat so luong san pham
                     $product = Product::find($value['id']);
                     $product->quantity = (int)$product->quantity - (int)$value['quantity'];
+                    $products->sold = (int)$product->sold + (int)$value['quantity'];
                     $product->save();
                     
                     $bill_detal->quantity = $value['quantity'];

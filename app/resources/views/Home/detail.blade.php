@@ -32,6 +32,9 @@
                         <td><input type="number" min="1" max="{{$product->quantity}}" name="quantity"  value="1" step="1"></td>
                         </tr>
                         <tr>
+                            <td><h4 style="color:blue"><b>Giá : {{ number_format($product->price,0,',','.')}} vnđ</b></h4></td>
+                        </tr>
+                        <tr>
                         <td><button type="submit" class="btn btn-primary">Mua</button></td>
                         </tr>
                     </table>

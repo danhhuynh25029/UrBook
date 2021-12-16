@@ -49,6 +49,16 @@ body{
     position: relative;
     min-height: 100vh;
 }
+.body .find{
+    border-bottom: 1px solid rgb(240, 237, 237) ;
+    margin-bottom: 10px;
+}
+.body .find a{
+    /*color: lightblue;*/
+}
+.body .find a:hover{
+    color: #007bff !important;
+}
 .body .categories{
     border-right: 1px solid rgb(240, 237, 237) ;
 }
@@ -61,10 +71,10 @@ body{
 }
 .body .categories a{
     text-decoration: none;
-    color: black;
+    color: #007bff;
 }
 .body .categories a:hover{
-    color: black !important;
+    color: #007bff !important;
 }
 .body .categories .list ul li{
     height: 30px;

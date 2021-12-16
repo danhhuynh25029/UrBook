@@ -19,6 +19,7 @@ class ProductController extends Controller
                 $pro->name = $request->name;
                 $pro->author = $request->author;
                 $pro->quantity = $request->quantity;
+                $pro->sold = 0;
                 $pro->price = $request->price;
                 $pro->description = $request->description;
                 $pro->category_id = $request->category;
@@ -62,6 +63,8 @@ class ProductController extends Controller
         }
     }
     public function find(Request $request){
-        
+        $name = $request->name;
+        $products = Product::where('name','like','%'.$name.'%')->get();
+        return view('Admin/products',['products'=>$products]);
     }
 }

@@ -36,7 +36,7 @@
                 <form method="GET" action="{{route('home.find')}}"style="display: flex;align-items: center;margin-top: 10px;margin-left: 20px;">
                     @csrf
                     <input name="name" class="form-control" type="text" aria-label="default input example" style="display: inline !important;width: 50%;">
-                    <button type="submit" class="btn btn-primary">search</button>
+                    <button type="submit" class="btn btn-primary">Tìm kiếm</button>
                 </form>
             </div>
             <div class="col-3">
@@ -74,6 +74,7 @@
                     <div style="width: 70%;margin:0 auto;">
                     <ul>
                         <li style="margin-bottom:10px;text-align: center;"><h3>Urbook</h3></li>
+                        <hr style="background-color:white;height: 3px;">
                         @foreach($infors as $key => $item)
                             <li style="margin-top: 10px;"><i class="{{$icon[$key]}}"></i>{{$item->infor}}</li>
                         @endforeach
@@ -83,20 +84,25 @@
                 <div class="col-4">
                     <ul>
                         <li><h3>Phương thức thanh toán</h3></li>
+                        <hr style="background-color:white;height: 3px;">
                         <li style="margin-top: 10px;">Trực tiếp</li>                
                     </ul>
                 </div>
                 <div class="col-3">
-                    <form method="POST">
+                    <h3 style="color:white;margin-top: 10px;">Phản hồi</h3>
+                    <hr style="background-color:white;height: 3px;">
+                    <form method="POST" action="{{route('home.feedback')}}">
+                        @csrf
+                        <input type="hidden" id="_token" value="{{ csrf_token() }}">
                         <div class="mb-3">
                           <label for="exampleFormControlInput1" class="form-label">Địa chỉ email</label>
-                          <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="">
+                          <input type="email" name="email" class="form-control" id="email" placeholder="">
                         </div>
                         <div class="mb-3">
                           <label for="exampleFormControlTextarea1" class="form-label">Nội dung</label>
-                          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                          <textarea name="content" class="form-control" id="content" rows="3"></textarea>
                         </div>
-                       <button type="button" class="btn btn-light">Gửi</button>
+                       <button type="button" class="btn btn-light" onclick="sendFeedback()">Gửi</button>
                     </form>
                 </div>
                 {{-- <div class="col-4">
@@ -107,5 +113,26 @@
         </div>
     </div>
 </div>
+<script type="text/javascript">
+    function sendFeedback(){
+        var email = document.getElementById("email").value;
+        var content = document.getElementById("content").value;
+        var token = document.getElementById("_token").value;
+        var ajax = new XMLHttpRequest();
+        var regexEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+        if (email.match(regexEmail)) {
+            ajax.onreadystatechange = function(){
+                if(this.status = 200 && this.readyState == 4){
+                    alert("Gửi thành công");
+                }
+            }
+            ajax.open('POST',`{{route('home.feedback')}}?_token=${token}&email=${email}&content=${content}`,true);
+            ajax.send();
+        } else {
+            alert("Vui lòng nhập địa chỉ email của bạn"); 
+        }
+        
+    }
+</script>
 </body>
 </html>

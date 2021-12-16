@@ -11,6 +11,7 @@ use App\Models\Users;
 use App\Models\Manager;
 use App\Models\Bill;
 use App\Models\Customer;
+use App\Models\Feedback;
 class AdminController extends Controller
 {
     public function check($name,$password){
@@ -106,5 +107,9 @@ class AdminController extends Controller
         }else{
             return redirect()->route('signin');
         }
+    }
+    public function feedbacks(Request $request){
+        $feedbacks = Feedback::all();
+        return view('Admin/feedbacks',['feedbacks'=>$feedbacks]);
     }
 }

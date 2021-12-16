@@ -18,7 +18,7 @@
               <th scope="row">{{$item->id}}</th>
               <td>{{$item->name}}</td>
               <td>{{ $item-> email}}</td>
-              <td>{{$item->created_at}}</td>
+              <td>{{date('d/m/y',strtotime($item->created_at))}}</td>
               <td style="text-align: center;"><a href="">Chi tiết</a></td>
             </tr>
           @endif

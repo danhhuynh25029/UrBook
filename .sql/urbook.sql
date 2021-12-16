@@ -24,6 +24,7 @@ CREATE TABLE products(
     image varchar(200) not null,
     author varchar(200) not null,
 	quantity int not null,
+    sold int not null,
     price int not null, 
     description text,
     category_id int not null,
@@ -31,6 +32,8 @@ CREATE TABLE products(
     updated_at datetime default now(),
     foreign key(category_id) references categories(id)
 );
+-- thêm cột sản phẩm đã bán 
+alter table products add column sold int;
 -- tạo bảng người quản trị website
 create table manager(
     id int auto_increment not null,
@@ -109,5 +112,12 @@ create table comments(
     content text not null,
     foreign key(user_id) references user(id),
     foreign key(product_id) references products(id),
+    primary key(id)
+);
+-- tạo bản phản hồi ý kiến của người dùng
+create table feedbacks(
+	id int auto_increment not null,
+    email varchar(255) not null,
+    content text not null,
     primary key(id)
 );

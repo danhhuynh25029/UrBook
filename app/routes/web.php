@@ -13,6 +13,8 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ManagerController;
 use App\Http\Controllers\BillController;
 use App\Http\Controllers\CommentController;
+use App\Http\Controllers\ListController;
+use App\Http\Controllers\FeedController;
 // use App\Http\Controllers\ManagerController;
 /*
 |--------------------------------------------------------------------------
@@ -49,6 +51,7 @@ Route::prefix('home')->group(function(){
     Route::get('order',[HomeController::class,'order'])->name('home.order');
     Route::post('order',[HomeController::class,'order'])->name('home.order');
     Route::post('comment',[CommentController::class,'insert'])->name('home.comment');
+    Route::post('feedback',[FeedController::class,'insert'])->name('home.feedback');
 });
 // Quan ly trang thong tin nguoi dung
 Route::prefix('profile')->group(function(){
@@ -72,6 +75,8 @@ Route::prefix('admin')->group(function(){
     Route::get('orders',[AdminController::class,'orders'])->name('admin.orders');
     Route::get('managers',[AdminController::class,'managers'])->name('admin.managers');
     Route::get('bills',[AdminController::class,'orders'])->name('admin.bills');
+    Route::get('list',[ListController::class,'list'])->name('admin.list');
+    Route::get('feedbacks',[AdminController::class,'feedbacks'])->name('admin.feedbacks');
 });
 // Hoa don
 Route::prefix('admin/bills')->group(function(){
@@ -102,6 +107,7 @@ Route::prefix('admin/products')->group(function(){
     Route::get('update',[ProductController::class,'update'])->name('products.update');
     Route::post('update',[ProductController::class,'update'])->name('products.update');
     Route::get('delete',[ProductController::class,'delete'])->name('products.delete');
+    Route::get('find',[ProductController::class,'find'])->name('products.find');
 });
 
 Route::prefix('admin/managers')->group(function(){
