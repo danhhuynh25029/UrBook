@@ -15,4 +15,5 @@ class FeedController extends Controller
         $feed->save();
         return true;
     }
+  
 }

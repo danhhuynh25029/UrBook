@@ -60,6 +60,7 @@
     ajax.onreadystatechange = function(){
       if(this.readyState == 4 && this.status == 200){
         // console.log(this.responseText);
+          alert("Cập nhật thành công");
       }
     }
     ajax.open('GET',`{{route('bills.update')}}?id=${key}&status=${sta}`);

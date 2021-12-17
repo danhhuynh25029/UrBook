@@ -8,12 +8,14 @@ CREATE TABLE categories(
     primary key(id)
 );
 -- tạo bảng thông tin website 
+drop table information;
 CREATE TABLE information(
 	id int auto_increment not null,
     type varchar(50) not null,
     infor varchar(50),
     primary key(id)
 );
+INSERT INTO information(type,infor) VALUES('Địa chỉ','Trà Vình');
 INSERT INTO information(type,infor) VALUES('Số điện thoại','0789658670');
 INSERT INTO information(type,infor) VALUES('Facebook','https://www.facebook.com/danh250/');
 INSERT INTO information(type,infor) VALUES('Email','danhhuynh250@gmail.com');
@@ -93,7 +95,7 @@ create table bills(
     primary key(id),
     foreign key(customer_id) references customers(id)
 );
-alter table orders add column status int;
+-- alter table orders add column status int;
 drop table bill_detail;
 create table bill_detail(
 	id int not null auto_increment,
@@ -119,5 +121,7 @@ create table feedbacks(
 	id int auto_increment not null,
     email varchar(255) not null,
     content text not null,
+    created_at datetime default current_timestamp(),
+    updated_at datetime default now(),
     primary key(id)
 );

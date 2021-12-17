@@ -17,7 +17,7 @@
                         <td><h5>Số lượng còn lại : {{$product->quantity}}</h5></td>
                     </tr>
                     <tr>
-                <td><h4 style="color:blue"><b>Giá : {{ number_format($product->price,0,',','.')}} vnđ</b></h4></td>
+                {{-- <td><h4 style="color:blue"><b>Giá : {{ number_format($product->price,0,',','.')}} vnđ</b></h4></td> --}}
                 </tr>   
                 </table>
                 <form action="{{route('cart.add')}}" method="GET">
@@ -58,6 +58,8 @@
                 </div>
                 </div>
                 @if($user)
+                <h5>Bình luận</h5>
+                <hr style="background-color:#079992;height: 3px;">
                 <form style="width: 70%;margin:10px auto;" method="POST" action="{{route('home.comment')}}">
                     @csrf
                 <div class="mb-3">

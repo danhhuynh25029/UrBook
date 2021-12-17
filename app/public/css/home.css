@@ -9,6 +9,9 @@ a{
     color: white;
     /*pointer-events: none;*/
 }
+.signout:hover{
+    color:red !important ;
+}
 a:hover{
     color: white !important;
 }

@@ -74,8 +74,8 @@ class AdminController extends Controller
         $password = $request->session()->get('password');
         // $user = Users::find(1);
         if($this->check($name,$password) == true){
-            $bills = Bill::all();
-            $customers = Customer::all();
+            // $bills = Bill::orderBy('created_at','DESC')->get();
+            $customers = Customer::orderBy('created_at','DESC')->get();
              return view('Admin/bills',
                 ['customers'=>$customers,'s'=>-1]
             );
@@ -89,7 +89,7 @@ class AdminController extends Controller
         $password = $request->session()->get('password');
         // $user = Users::find(1);
         if($this->check($name,$password) == true){
-             $users = Users::all();
+             $users = Users::orderBy('created_at','DESC')->get();
 
             return view('Admin/users',['users'=>$users]);
         }else{

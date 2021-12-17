@@ -32,7 +32,7 @@
                     <li class="list-group-item"><a href="{{ route('admin.managers')}}"><i class="fas fa-users-cog"></i>Người quản trị</a></li>
                     
                     <li class="list-group-item"><a href="{{ route('admin.infors')}}"><i class="fas fa-info-circle"></i>Thông tin website</a></li>
-                    <li class="list-group-item"><a href="{{ route('admin.infors')}}"><i class="fas fa-dollar-sign"></i>Thống kê</a></li>
+                    <li class="list-group-item"><a href="{{ route('admin.list')}}"><i class="fas fa-dollar-sign"></i>Thống kê</a></li>
 
 
                   </ul>

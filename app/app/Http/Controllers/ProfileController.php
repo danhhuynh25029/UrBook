@@ -11,7 +11,7 @@ use App\Models\BillDetail;
 
 class ProfileController extends Controller
 {
-    public $icon = ['fas fa-phone-alt','fab fa-facebook-square','far fa-envelope'];
+    public $icon = ['fas fa-map-marker-alt','fas fa-phone-alt','fab fa-facebook-square','far fa-envelope'];
     public function profile(Request $request){
         $id = $request->session()->get('id');
         $user = Users::find($id);

@@ -24,7 +24,7 @@ class ProductController extends Controller
                 $pro->description = $request->description;
                 $pro->category_id = $request->category;
                 $image = $request->file('image');
-                $store = $image->move('image',$image->getClientOriginalName());
+                $store = $image->move('image',time().'_'.$image->getClientOriginalName());
                 $pro->image = $store;
                 $pro->save();
                 return redirect()->route('admin.products');

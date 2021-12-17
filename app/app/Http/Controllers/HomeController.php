@@ -17,7 +17,7 @@ use App\Models\Comment;
 class HomeController extends Controller
 {
     // Hien thi sach dang ban 
-    public $icon = ['fas fa-phone-alt','fab fa-facebook-square','far fa-envelope'];
+    public $icon = ['fas fa-map-marker-alt','fas fa-phone-alt','fab fa-facebook-square','far fa-envelope'];
     public function homePage(Request $request){
         $cates = Category::all();
         $products = Product::paginate(12);
@@ -130,10 +130,15 @@ class HomeController extends Controller
     }
     public function find(Request $request){
         $id = $request->id;
+        $price = $request->price;
         $cates = Category::all();
         $products = null;
-        if($id){
+        if($id && $price){
+            $products = Product::orderBy('price',$price)->where('category_id',$id)->paginate(12);
+        }else if($id){
             $products = Product::where('category_id',$id)->paginate(12);
+        }else if($price){
+             $products = Product::orderBy('price',$price)->paginate(12); 
         }else{
             $products = Product::where('name','like','%'.$request->name.'%')->paginate(12);
         }

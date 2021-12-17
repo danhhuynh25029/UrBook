@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="{{ asset('css/home.css')}}">
     <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{ asset('icon/css/all.min.css')}}">
+     <link rel="stylesheet" href="{{ asset('css/login.css') }}">
 </head>
 <body>
     <div class="container-fluid">
@@ -24,12 +25,12 @@
                     <li class="nav-item">
                       <a class="nav-link" href="{{route('home')}}">Trang chủ</a>
                     </li>
-                    <li class="nav-item">
+                    {{-- <li class="nav-item">
                       <a class="nav-link" href="#">Giới thiệu</a>
                     </li>
                     <li class="nav-item">
                       <a class="nav-link disabled">Liên hệ</a>
-                    </li>
+                    </li> --}}
                   </ul>
             </div>
             <div class="col">
@@ -119,6 +120,7 @@
         var content = document.getElementById("content").value;
         var token = document.getElementById("_token").value;
         var ajax = new XMLHttpRequest();
+        // Check mail
         var regexEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
         if (email.match(regexEmail)) {
             ajax.onreadystatechange = function(){

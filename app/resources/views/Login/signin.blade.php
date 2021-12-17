@@ -27,8 +27,8 @@
             </td>
         </tr>
         <tr>
-        <td><button type="submit" class="btn btn-primary">Đăng nhập</button></td>
-        <td><a class="small" href="#">Quên mật khẩu ?</a></td>
+        <td colspan="2"><button type="submit" class="btn btn-primary">Đăng nhập</button></td>
+        {{-- <td><a class="small" href="#">Quên mật khẩu ?</a></td> --}}
         </tr>
     </table>
 </form>

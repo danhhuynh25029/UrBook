@@ -75,7 +75,7 @@ Route::prefix('admin')->group(function(){
     Route::get('orders',[AdminController::class,'orders'])->name('admin.orders');
     Route::get('managers',[AdminController::class,'managers'])->name('admin.managers');
     Route::get('bills',[AdminController::class,'orders'])->name('admin.bills');
-    Route::get('list',[ListController::class,'list'])->name('admin.list');
+    Route::get('list',[ListController::class,'show'])->name('admin.list');
     Route::get('feedbacks',[AdminController::class,'feedbacks'])->name('admin.feedbacks');
 });
 // Hoa don
@@ -116,4 +116,7 @@ Route::prefix('admin/managers')->group(function(){
     Route::get('update',[ManagerController::class,'update'])->name('managers.update');
     Route::post('update',[ManagerController::class,'update'])->name('managers.update');
     Route::get('delete',[ManagerController::class,'delete'])->name('managers.delete');
+});
+Route::prefix('admin/feedbacks')->group(function(){
+    Route::get('detail',[FeedController::class,'detail'])->name('feedback.detail');
 });
