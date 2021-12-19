@@ -50,7 +50,7 @@ class AdminController extends Controller
         $password = $request->session()->get('password');
         // $user = Users::find(1);
         if($this->check($name,$password) == true){
-            $product = Product::all();
+            $product = Product::orderBy('created_at','DESC')->get();
             return view('Admin/products',['products'=>$product]);  
         }else{
             return redirect()->route('signin');

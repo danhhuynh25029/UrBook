@@ -17,7 +17,7 @@
           <td>{{ $item->name}}</td>
           <td>
             <a href="{{route('categories.update',['id'=>$item->id])}}"><button type="button" class="btn btn-primary">Chỉnh sửa</button></a>
-            <a href="{{route('categories.delete',['id'=>$item->id])}}"><button type="button" class="btn btn-danger">Xóa</button></a>
+            {{-- <a href="{{route('categories.delete',['id'=>$item->id])}}"><button type="button" class="btn btn-danger">Xóa</button></a> --}}
           </td>
       </tr>
       @endforeach

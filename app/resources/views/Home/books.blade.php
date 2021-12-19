@@ -9,14 +9,19 @@
     </div> -->
     <!-- Noi hien thi san pham ne -->
     <div class="row">
-        @foreach ($products as $item)
+        @foreach ($products as $key => $item)
         @if($item->quantity > 0)
-        <div class="col-3 item">
+        <div class="col-3 item" id="book">
           <a href="{{route('home.detail',['id'=>$item->id])}}" style="text-decoration:none;color:black;">
             <div class="card" >
                 <img src="{{asset($item->image)}}" class="card-img-top" alt="..."  >
                 <div class="card-body">
-                    <p class="card-text name">{{$item->name}}</p>
+                    @if(strlen($item->name) > 21)
+                    <p class="name" class="card-text name">{{substr($item->name,0,18)}}...</p>
+                    @else
+                    <p class="name" class="card-text name">{{$item->name}}</p>
+                    @endif
+                    
                     <p class="card-text price"><b>Giá : {{ number_format($item->price,0,',','.')}} vnđ</b></p>
                     <!-- <a href="#" class="card-link">Thêm vào giỏ</a>
                     <a href="#" class="card-link">Xem chi tiết</a> -->
@@ -51,4 +56,8 @@
   <div class="pagi">
   {{ $products->render() }}
   </div>
+<script type="text/javascript">
+
+
+</script>
 @endsection

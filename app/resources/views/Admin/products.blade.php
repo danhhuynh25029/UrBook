@@ -13,7 +13,6 @@
     <div class="col-3"></div>
 </div>
 </div>
-
 <a href="{{ route('products.insert')}}"><button type="button" class="btn insert btn-success">Thêm</button></a>
 <table class="table">
     <thead>
@@ -39,7 +38,7 @@
                 <td>{{$item->sold}}</td>
                 <td>{{$item->price}}</td>
                 <td><a href="{{route('products.update',['id'=>$item->id])}}"><button type="button" class="btn btn-primary">Chỉnh sửa</button></a>
-                  <a href="{{route('products.delete',['id'=>$item->id])}}"><button type="button" class="btn btn-danger">Xóa</button></a></td>
+                  {{-- <a href="{{route('products.delete',['id'=>$item->id])}}"><button type="button" class="btn btn-danger">Xóa</button></a></td> --}}
               </tr>
         @endforeach
     </tbody>

@@ -35,7 +35,7 @@
             </div>
             <div class="col">
                 <form method="GET" action="{{route('home.find')}}"style="display: flex;align-items: center;margin-top: 10px;margin-left: 20px;">
-                    @csrf
+                    {{-- @csrf --}}
                     <input name="name" class="form-control" type="text" aria-label="default input example" style="display: inline !important;width: 50%;">
                     <button type="submit" class="btn btn-primary">Tìm kiếm</button>
                 </form>

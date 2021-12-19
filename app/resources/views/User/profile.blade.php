@@ -11,7 +11,7 @@
                         <a class="signout" href="{{route('signout')}}" style="color:red;"><i class="fas fa-sign-out-alt" style="font-size: 30px;"></i></a>
                     </div>
                 </div>
-                <ul class="list-group" style="text-align: left;margin-top: 25px;">
+                <ul class="list-group pro" style="text-align: left;margin-top: 25px;">
                     <li class="list-group-item"><a href="{{ route('profile.infor')}}">Thông tin cá nhân</a></li>
                     <li class="list-group-item"><a href="{{ route('profile.ordercompeleted')}}">Đơn hàng đã hoàn thành</a></li>
                     <li class="list-group-item"><a href="{{ route('profile.ordering')}}">Đơn hàng đang giao</a></li>

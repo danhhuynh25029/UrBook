@@ -9,6 +9,12 @@ a{
     color: white;
     /*pointer-events: none;*/
 }
+.pro li a{
+    text-decoration: none;
+}
+.pro li a:hover{
+    color: #007bff !important;
+}
 .signout:hover{
     color:red !important ;
 }

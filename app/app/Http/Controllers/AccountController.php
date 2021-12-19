@@ -16,7 +16,7 @@ class AccountController extends Controller
         }else{
             $name = $request->name;
             $password = $request->password;
-            $user = Users::where([['name','=',$name],['password','=',$password]])->get();
+            $user = Users::where([['email','=',$name],['password','=',$password]])->get();
             $manager = Manager::where([['name','=',$name],['password','=',$password]])->get();
             if(count($manager) != 0){
                     $request->session()->put('id',$manager[0]->id);
@@ -25,11 +25,11 @@ class AccountController extends Controller
                     return redirect()->route('admin');
             }else if(count($user) > 0){
                     // tao cookie luu thong tin nguoi dung
-                    $cookie_name = Cookie::make('name',$name,60*60);
+                    $cookie_name = Cookie::make('email',$name,60*60);
                     $cookie_pass = Cookie::make('password',$password,60*60);
                     // tao session kiem tra
                     $request->session()->put('id',$user[0]->id);
-                    $request->session()->put('name',$name);
+                    $request->session()->put('email',$name);
                     $request->session()->put('password',$password);
                     return redirect()->route('home',['user'=>$user[0]])->withCookie($cookie_name)->withCookie($cookie_pass);
             }
@@ -60,6 +60,7 @@ class AccountController extends Controller
         $request->session()->forget('name');
         $request->session()->forget('password');
         $request->session()->forget('id');
+        $request->session()->forget('cart');
         return redirect()->route('home');
     }   
     // public function setSession(Request $request){

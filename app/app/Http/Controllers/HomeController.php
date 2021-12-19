@@ -24,10 +24,10 @@ class HomeController extends Controller
         $infors = Information::all();
         // Lay thong tin password name;
         $id = $request->session()->get('id');
-        $name = $request->session()->get('name');
+        $name = $request->session()->get('email');
         $password = $request->session()->get('password');
         $user = Users::where([
-            ['name','=',$name],
+            ['email','=',$name],
             ['password','=',$password],
             ['id','=',$id]
         ])->get();
@@ -35,7 +35,7 @@ class HomeController extends Controller
         if(count($user) > 0){
             $user = $user[0];
         }else{
-            $user = null;
+            $user = null;   
         }
         $cart = $request->session()->get('cart');
         // $icon = ['fas fa-phone-alt','fab fa-facebook-square','far fa-envelope'];
@@ -54,10 +54,10 @@ class HomeController extends Controller
         $product = Product::find($request->id);
         $infors = Information::all();
         $id = $request->session()->get('id');
-        $name = $request->session()->get('name');
+        $name = $request->session()->get('email');
         $password = $request->session()->get('password');
         $user = Users::where([
-            ['name','=',$name],
+            ['email','=',$name],
             ['password','=',$password],
             ['id','=',$id]
         ])->get();
@@ -92,10 +92,10 @@ class HomeController extends Controller
         $prices = array();
         $total = array();
         $id = $request->session()->get('id');
-        $name = $request->session()->get('name');
+        $name = $request->session()->get('email');
         $password = $request->session()->get('password');
         $user = Users::where([
-            ['name','=',$name],
+            ['email','=',$name],
             ['password','=',$password],
             ['id','=',$id]
         ])->get();
@@ -132,9 +132,17 @@ class HomeController extends Controller
         $id = $request->id;
         $price = $request->price;
         $cates = Category::all();
+        $name = $request->name;
         $products = null;
-        if($id && $price){
+        if($id && $price && $name){
+            $products = Product::orderBy('price',$price)->where([['category_id','=',$id],['name','like','%'.$request->name.'%']])->paginate(12);
+        }else if($id && $price){
             $products = Product::orderBy('price',$price)->where('category_id',$id)->paginate(12);
+        }else if($id && $name){
+            $products = Product::where([['category_id','=',$id],['name','like','%'.$request->name.'%']])->paginate(12);
+        }
+        else if($name && $price){
+            $products = Product::orderBy('price',$price)->where('name','like','%'.$request->name.'%')->paginate(12);
         }else if($id){
             $products = Product::where('category_id',$id)->paginate(12);
         }else if($price){
@@ -144,10 +152,10 @@ class HomeController extends Controller
         }
         $infors = Information::all();
         $id = $request->session()->get('id');
-        $name = $request->session()->get('name');
+        $name = $request->session()->get('email');
         $password = $request->session()->get('password');
         $user = Users::where([
-            ['name','=',$name],
+            ['email','=',$name],
             ['password','=',$password],
             ['id','=',$id]
         ])->get();
@@ -173,10 +181,10 @@ class HomeController extends Controller
         if($request->isMethod('get')){
             $infors = Information::all();
             $id = $request->session()->get('id');
-            $name = $request->session()->get('name');
+            $name = $request->session()->get('email');
             $password = $request->session()->get('password');
             $user = Users::where([
-                ['name','=',$name],
+                ['email','=',$name],
                 ['password','=',$password],
                 ['id','=',$id]
             ])->get();
@@ -230,7 +238,7 @@ class HomeController extends Controller
                     // cap nhat so luong san pham
                     $product = Product::find($value['id']);
                     $product->quantity = (int)$product->quantity - (int)$value['quantity'];
-                    $products->sold = (int)$product->sold + (int)$value['quantity'];
+                    $product->sold = (int)$product->sold + (int)$value['quantity'];
                     $product->save();
                     
                     $bill_detal->quantity = $value['quantity'];

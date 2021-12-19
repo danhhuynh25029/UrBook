@@ -9,8 +9,8 @@ class CartController extends Controller
      public function check($name,$password){
         // $name = $request->session()->get('name');
         // $password = $request->session()->get('password');
-        $user = Users::where([['name','=',$name],['password','=',$password]])->get();
-        if(count($manager) != 0){
+        $user = Users::where([['email','=',$name],['password','=',$password]])->get();
+        if(count($user) != 0){
             return true;    
         }else{
             return false;
@@ -19,7 +19,7 @@ class CartController extends Controller
     public function add(Request $request){
        // dd($request->input());
         $password = $request->session()->get('password');
-        $user = $request->session()->get('name');
+        $name = $request->session()->get('email');
         if($this->check($name,$password) == true){
         $price_d = $request->price;
         $quantity = $request->quantity;

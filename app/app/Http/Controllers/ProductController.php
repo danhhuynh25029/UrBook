@@ -50,9 +50,9 @@ class ProductController extends Controller
             $product->description = $request->description;
             $product->quantity = $request->quantity;
             $product->price = $request->price;
-            if($request->haseFile('image')){
+            if($request->hasFile('image')){
                 $image = $request->file('image');
-                $store = $request->move('image',$image->getclientOriginalName());
+                $store = $request->move('image',time().'_'.$image->getclientOriginalName());
                 $product->image = $store;
             }else{
                 $product->image = $product->image;

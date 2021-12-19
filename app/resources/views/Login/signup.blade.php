@@ -19,19 +19,19 @@
         <tr>
             <td colspan="2" style="text-align: left;">
                 <label>Tên đăng nhập : </label>
-                <input id="name" name="name" class="form-control" placeholder="Tên đăng nhập" type="text">
+                <input id="name" name="name" class="form-control" placeholder="Tên đăng nhập" type="text" required>
             </td>
         </tr>
         <tr>
             <td colspan="2" style="text-align: left;">
                 <label>Email : </label>
-                <input id="email" name="email" class="form-control" placeholder="Email" type="email">
+                <input id="email" name="email" class="form-control" placeholder="Email" type="email" required>
             </td>
         </tr>
         <tr>
             <td colspan="2" style="text-align: left;">
                 <label>Mật khẩu : </label>
-                <input id="password" name="password" class="form-control" placeholder="Mật khẩu" type="password">
+                <input id="password" name="password" class="form-control" placeholder="Mật khẩu" type="password" required>
             </td>
         </tr>
         {{-- <tr>
