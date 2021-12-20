@@ -129,7 +129,7 @@ class HomeController extends Controller
         }
     }
     public function find(Request $request){
-        $s = array('top'=>'DESC','down'=>'ASC','date'=>'DESC','sell'=>'DESC');
+        $s = array('top'=>'ASC','down'=>'DESC','date'=>'DESC','sell'=>'DESC');
         $s1 = array('top'=>'price','down'=>'price','date'=>'created_at','sell'=>'sold');
         $id = $request->id;
         $sort = $request->sort;

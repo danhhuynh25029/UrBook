@@ -11,6 +11,7 @@
 <body>
 <form action="{{route('signup')}}" method="POST">
     @csrf
+
     <table class="Signup">
         <tr>
             <td><a href="{{route('signin')}}">Đăng nhập</a></td>
@@ -31,15 +32,14 @@
         <tr>
             <td colspan="2" style="text-align: left;">
                 <label>Mật khẩu : </label>
-                <input id="password" name="password" class="form-control" placeholder="Mật khẩu" type="password" required>
+                <input id="password" onkeyup="check()"name="password" class="form-control" placeholder="Mật khẩu" type="password" required>
             </td>
         </tr>
         <tr>
-            <td colspan="2">
-                <div class="input-group mb-3">
-                <input id="pass" name="password"  value=""type="password" class="form-control" id="exampleFormControlInput1" placeholder="">
-                  <button onclick="display()"class="btn btn-primary" type="button" id="button-addon2">Hiển thị</button>
-                  </div>
+            <td colspan="2" style="text-align: left;">
+                <label>Xác nhận mật khẩu : </label>
+                <input id="con_password" onkeyup="check()" name="con_password" class="form-control" placeholder="Xác nhận mật khẩu" type="password" required>
+                <span id='message'></span>
             </td>
         </tr>
         {{-- <tr>
@@ -57,5 +57,16 @@
     
 </div>
 </body>
+<script type="text/javascript">
+    function check() {
+         if (document.getElementById('password').value == document.getElementById('con_password').value) {
+            document.getElementById('message').style.color = 'green';
+            document.getElementById('message').innerHTML = 'giống nhau';
+          } else {
+            document.getElementById('message').style.color = 'red';
+            document.getElementById('message').innerHTML = 'Vui lòng nhập giống nhau';
+          }
+    }
+</script>
 <script src="js/bootstrap.min.js"></script>
 </html>

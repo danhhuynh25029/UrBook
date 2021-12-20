@@ -51,6 +51,7 @@
         <li class="nav-item"><a class="nav-link"  href="{{url()->full(). '/find?' . http_build_query(['sort' => 'down'])}}">Cao-Thấp</a></li>
         @endif
     </ul>
+    <hr style="height: 1px;background-color: rgb(228, 226, 226);">
     <div class="row">
         @foreach ($products as $key => $item)
         @if($item->quantity > 0)
