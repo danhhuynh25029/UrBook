@@ -125,3 +125,13 @@ create table feedbacks(
     updated_at datetime default now(),
     primary key(id)
 );
+-- tạo bảng doanh thu theo tháng
+drop table saleMonth;
+create table sale_month(
+	id int auto_increment not null,
+    total int not null,
+    month varchar(255) not null,
+    year varchar(225) not null,
+    primary key(id)
+); 
+

@@ -15,7 +15,7 @@
       <tr>
         <th scope="row">{{$item->id}}</th>
         <td>{{$item->email}}</td>
-        <td>{{date("d/m/y",strtotime($item->created_at))}}</td>
+        <td>{{date("d/m/Y",strtotime($item->created_at))}}</td>
         <td>
           {{$item->content}}
         </td>

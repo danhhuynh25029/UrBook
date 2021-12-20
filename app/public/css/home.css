@@ -69,6 +69,7 @@ body{
     color: #007bff !important;
 }
 .body .categories{
+    /*background-color:rgb(240, 237, 237) ;*/
     border-right: 1px solid rgb(240, 237, 237) ;
 }
 .body .categories .list ul{
@@ -95,6 +96,9 @@ body{
     margin-top: 10px;
     background-color: #ffffff !important;
     
+}
+.body .content .nav-book li a:hover{
+    color: #007bff !important;
 }
 /* style item */
 .body .item{

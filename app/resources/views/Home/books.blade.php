@@ -1,13 +1,56 @@
 @extends('Home.body')
 @section('content')
-<div class="col-10 content">
-    <!-- <div class="content bg-white" style="width: 100%;margin-top: 10px;">
-        <div class="col-12 d-flex justify-content-between align-items-center pb-2">
-            <h3>SÁCH MỚI CẬP NHẬT</h3>
-            <a href="#" class="btn btn-warning text-white">Xem tất cả</a>
-        </div>
-    </div> -->
-    <!-- Noi hien thi san pham ne -->
+<div class="col content">
+    <ul class="nav nav-book">
+        {{-- San pham moi nhat --}}
+        @if(strpos(url()->full(),"sort=down") || strpos(url()->full(),"sort=top") || strpos(url()->full(),"sort=sell"))
+        <li class="nav-item">
+            <?php $URL = preg_replace("/sort=*.[a-z].*/","sort=",url()->full()) ?>
+            <a class="nav-link" href="{{str_replace("sort=","sort=date",$URL)}}">Mới nhất</a>
+        </li>
+        @elseif(strpos(url()->full(),"find?"))
+        <li class="nav-item">
+            <a class="nav-link" href="{{url()->full()."&".http_build_query(['sort'=>'date'])}}">Mới nhất</a>
+        </li>
+        @else
+             <li class="nav-item">
+            <a class="nav-link" href="{{url()->full()."/find?".http_build_query(['sort'=>'date'])}}">Mới nhất</a>
+        </li>
+        @endif
+        {{-- tim kiem theo muc do pho bien --}}
+        @if(strpos(url()->full(),"sort=down") || strpos(url()->full(),"sort=top") || strpos(url()->full(),"sort=date"))
+        <li class="nav-item">
+            <?php $URL = preg_replace("/sort=*.[a-z].*/","sort=",url()->full()) ?>
+            <a class="nav-link" href="{{str_replace("sort=","sort=sell",$URL)}}">Bán chạy</a>
+        </li>
+        @elseif(strpos(url()->full(),"find?"))
+        <li class="nav-item">
+            <a class="nav-link" href="{{url()->full()."&".http_build_query(['sort'=>'sell'])}}">Bán chạy</a>
+        </li>
+        @else
+             <li class="nav-item">
+            <a class="nav-link" href="{{url()->full()."/find?".http_build_query(['sort'=>'sell'])}}">Bán chạy</a>
+        </li>
+        @endif
+        {{-- tim theo gia thap den cao--}}
+        @if(strpos(url()->full(),"sort=down") || strpos(url()->full(),"sort=date") || strpos(url()->full(),"sort=sell"))
+        <?php $URL = preg_replace("/sort=*.[a-z].*/","sort=",url()->full()) ?>
+        <li class="nav-item"><a class="nav-link" href="{{ str_replace("sort=","sort=top",$URL)}}">Thấp-Cao</a></li>
+        @elseif(strpos(url()->full(),"find?"))
+        <li class="nav-item"><a class="nav-link"  href="{{url()->full(). '&' . http_build_query(['sort' => 'top'])}}">Thấp-Cao</a></li>
+        @else
+        <li class="nav-item"><a class="nav-link"  href="{{url()->full(). '/find?' . http_build_query(['sort' => 'top'])}}">Thấp-Cao</a></li>
+        @endif
+        {{-- cao den thap  --}}
+        @if(strpos(url()->full(),"sort=date") || strpos(url()->full(),"sort=top") || strpos(url()->full(),"sort=sell"))
+        <?php $URL = preg_replace("/sort=*.[a-z].*/","sort=",url()->full()) ?>
+        <li class="nav-item"><a class="nav-link"  href="{{ str_replace("sort=","sort=down",$URL)}}">Cao-Thấp</a></li>
+        @elseif(strpos(url()->full(),"find?"))
+        <li class="nav-item"><a class="nav-link"  href="{{url()->full(). '&' . http_build_query(['sort' => 'down'])}}">Cao-Thấp</a></li>
+        @else
+        <li class="nav-item"><a class="nav-link"  href="{{url()->full(). '/find?' . http_build_query(['sort' => 'down'])}}">Cao-Thấp</a></li>
+        @endif
+    </ul>
     <div class="row">
         @foreach ($products as $key => $item)
         @if($item->quantity > 0)

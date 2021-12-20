@@ -47,7 +47,7 @@
     <div class="mb-3">
         <label for="select" class="form-label">Thể loại</label>
         <select name="category" id="select" class="form-select" aria-label="Default select example" required>
-            <option value="0">Chọn thể loại</option>
+            <option value="">Chọn thể loại</option>
             @foreach ($cate as $item)
                 @if ($item->id == $product->category_id)
                     <option value="{{$item->id}}" selected>{{$item->name}}</option>  
@@ -62,7 +62,7 @@
     <div class="mb-3">
         <label for="select" class="form-label">Thể loại</label>
         <select name="category" id="select" class="form-select" aria-label="Default select example" required>
-            <option  value="0" selected>Chọn thể loại</option>
+            <option  value="" selected>Chọn thể loại</option>
             @foreach ($cate as $item)
                 <option value="{{$item->id}}">{{$item->name}}</option>  
             @endforeach
@@ -72,9 +72,9 @@
     <div class="mb-3">
         <label for="exampleFormControlTextarea1" class="form-label">Mô tả</label>
         @if ($product)
-        <textarea name="description" class="form-control" id="des" rows="3">{{$product->description}}</textarea>
+        <textarea name="description" class="form-control" id="des" rows="3" maxlength="255">{{$product->description}}</textarea>
         @else
-        <textarea name="description" class="form-control" id="des" rows="3"></textarea>
+        <textarea name="description" class="form-control" id="des" rows="3" maxlength="255"></textarea>
         @endif
     </div>
     <div class="mb-3">

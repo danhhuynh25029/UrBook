@@ -34,6 +34,14 @@
                 <input id="password" name="password" class="form-control" placeholder="Mật khẩu" type="password" required>
             </td>
         </tr>
+        <tr>
+            <td colspan="2">
+                <div class="input-group mb-3">
+                <input id="pass" name="password"  value=""type="password" class="form-control" id="exampleFormControlInput1" placeholder="">
+                  <button onclick="display()"class="btn btn-primary" type="button" id="button-addon2">Hiển thị</button>
+                  </div>
+            </td>
+        </tr>
         {{-- <tr>
             <td colspan="2" style="text-align: left;">
                 <label>Xác nhận mật khẩu : </label>

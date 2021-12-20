@@ -10,9 +10,9 @@
       <label for="inputEmail3" class="col-sm-2 col-form-label">Tên</label><br>
       <div class="col-sm-10">
         @if($cate)
-          <input type="text" class="form-control" style="width:50%" name="name" value="{{$cate->name}}">
+          <input type="text" class="form-control" style="width:50%" name="name" value="{{$cate->name}}" required maxlength="20">
         @else
-          <input type="text" class="form-control" style="width:50%" name="name">
+          <input type="text" class="form-control" style="width:50%" name="name" required maxlength="20">
         @endif
       </div>
     </div>

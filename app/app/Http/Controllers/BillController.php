@@ -8,6 +8,7 @@ use App\Models\Bill;
 use App\Models\BillDetail;
 use App\Models\Product;
 use App\Models\Manager;
+use App\Models\Sale;
 class BillController extends Controller
 {
      public function check($name,$password){
@@ -29,6 +30,29 @@ class BillController extends Controller
             $customer = Customer::find($request->id);
             $status =  $request->status;
             $customer->status = $status;
+            if($status == 3){
+                $bill = Bill::where("customer_id",$customer->id)->get();
+                $bill_d = BillDetail::where("bill_id",$bill[0]->id)->get();
+                foreach($bill_d as $item){
+                    $product = Product::find($item->product_id);
+                    $product->sold = $product->sold + $item->quantity;
+                    $product->save();
+                }
+                // them du lieu vao ban thong ke
+                $year = date("Y",strtotime($bill[0]->created_at));
+                $month = date("m",strtotime($bill[0]->created_at));
+                $sale = Sale::where([["year","=",$year],["month","=",$month]])->get();
+                if(count($sale) != 0){
+                    $sale[0]->total = $sale[0]->total + $bill[0]->total;
+                    $sale[0]->save();
+                }else{
+                    $s = new Sale;
+                    $s->total = $bill[0]->total;
+                    $s->month = $month;
+                    $s->year = $year;
+                    $s->save();
+                }
+            }
             $customer->save();
         }
         return true;

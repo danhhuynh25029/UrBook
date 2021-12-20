@@ -129,24 +129,26 @@ class HomeController extends Controller
         }
     }
     public function find(Request $request){
+        $s = array('top'=>'DESC','down'=>'ASC','date'=>'DESC','sell'=>'DESC');
+        $s1 = array('top'=>'price','down'=>'price','date'=>'created_at','sell'=>'sold');
         $id = $request->id;
-        $price = $request->price;
+        $sort = $request->sort;
         $cates = Category::all();
         $name = $request->name;
         $products = null;
-        if($id && $price && $name){
-            $products = Product::orderBy('price',$price)->where([['category_id','=',$id],['name','like','%'.$request->name.'%']])->paginate(12);
-        }else if($id && $price){
-            $products = Product::orderBy('price',$price)->where('category_id',$id)->paginate(12);
+        if($id && $sort && $name){
+            $products = Product::orderBy($s1[$sort],$s[$sort])->where([['category_id','=',$id],['name','like','%'.$request->name.'%']])->paginate(12);
+        }else if($id && $sort){
+            $products = Product::orderBy($s1[$sort],$s[$sort])->where('category_id',$id)->paginate(12);
         }else if($id && $name){
             $products = Product::where([['category_id','=',$id],['name','like','%'.$request->name.'%']])->paginate(12);
         }
-        else if($name && $price){
-            $products = Product::orderBy('price',$price)->where('name','like','%'.$request->name.'%')->paginate(12);
+        else if($name && $sort){
+            $products = Product::orderBy($s1[$sort],$s[$sort])->where('name','like','%'.$request->name.'%')->paginate(12);
         }else if($id){
             $products = Product::where('category_id',$id)->paginate(12);
-        }else if($price){
-             $products = Product::orderBy('price',$price)->paginate(12); 
+        }else if($sort){
+             $products = Product::orderBy($s1[$sort],$s[$sort])->paginate(12); 
         }else{
             $products = Product::where('name','like','%'.$request->name.'%')->paginate(12);
         }
@@ -238,7 +240,7 @@ class HomeController extends Controller
                     // cap nhat so luong san pham
                     $product = Product::find($value['id']);
                     $product->quantity = (int)$product->quantity - (int)$value['quantity'];
-                    $product->sold = (int)$product->sold + (int)$value['quantity'];
+                    // $product->sold = (int)$product->sold + (int)$value['quantity'];
                     $product->save();
                     
                     $bill_detal->quantity = $value['quantity'];

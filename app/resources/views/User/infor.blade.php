@@ -15,7 +15,6 @@
 			</div>
 			<label for="exampleFormControlInput1" class="form-label">Mật khẩu</label>
 			<div class="input-group mb-3">
-				 
 			  	  <input id="pass" name="password"  value="{{$user->password}}"type="password" class="form-control" id="exampleFormControlInput1" placeholder="">
 				  <button onclick="display()"class="btn btn-primary" type="button" id="button-addon2">Hiển thị</button>
 			</div>

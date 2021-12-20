@@ -12,7 +12,7 @@
                 @foreach($categories as $item)
                 <li><a href="{{str_replace("id=","id=".$item->id,$URL)}}">{{$item->name}}</a></li>
                 @endforeach
-                @elseif(strpos(url()->full(),"name"))
+                @elseif(strpos(url()->full(),"name") || strpos(url()->full(),"price"))
                 @foreach($categories as $item)
                 <li><a href="{{url()->full()."&"."id=".$item->id}}">{{$item->name}}</a></li>
                 {{-- <a  href="#">{{$item->name}}</a> --}}
@@ -24,7 +24,7 @@
                 @endforeach
                 @endif
                 {{--  --}}
-                <h3>Giá</h3>
+              {{--   <h3>Giá</h3>
                 <hr style="background-color: #079992;height: 2px;">
                 @if(strpos(url()->full(),"price=DESC"))
                 <li><a  href="{{ str_replace("DESC","ASC",url()->full())}}">Thấp-Cao</a></li>
@@ -33,14 +33,13 @@
                 @else
                 <li><a  href="{{url()->full(). '/find?' . http_build_query(['price' => 'ASC'])}}">Thấp-Cao</a></li>
                 @endif
-                {{--  --}}
                 @if(strpos(url()->full(),"price=ASC"))
                 <li><a  href="{{ str_replace("ASC","DESC",url()->full())}}">Cao-Thấp</a></li>
                 @elseif(strpos(url()->full(),"find?"))
                 <li><a  href="{{url()->full(). '&' . http_build_query(['price' => 'DESC'])}}">Cao-Thấp</a></li>
                 @else
                 <li><a  href="{{url()->full(). '/find?' . http_build_query(['price' => 'DESC'])}}">Cao-Thấp</a></li>
-                @endif
+                @endif --}}
             </ul>
         </div>
         </div>

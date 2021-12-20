@@ -39,10 +39,12 @@
           <td><form>
             <select onchange="status({{$item->id}})" id="sta">
               @foreach($status as $key => $value )
+              @if($key != -1)
               @if($key == $item->status)
                 <option value="{{$key}}" selected>{{$value}}</option>
               @else
                 <option value="{{$key}}">{{$value}}</option>
+              @endif
               @endif
               @endforeach
             </select>

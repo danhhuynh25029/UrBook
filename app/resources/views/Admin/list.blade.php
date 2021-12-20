@@ -20,4 +20,27 @@
 </div>
 	</div>
 </div>
+<div class="row">
+	<div class="col">
+		<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Doanh thu</th>
+      <th scope="col">Tháng</th>
+      {{-- <th scope="col">Handle</th> --}}
+    </tr>
+  </thead>
+  <tbody>
+  	@foreach($sale as $item)
+    <tr>
+      <th scope="row">{{$item->id}}</th>
+      <td>{{$item->total}} vnđ</td>
+      <td>{{$item->month}}/{{$item->year}}</td>
+    </tr>
+    @endforeach
+  </tbody>
+</table>
+	</div>
+</div>
 @endsection

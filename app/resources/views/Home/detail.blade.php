@@ -13,9 +13,9 @@
                     <tr>
                         <td><h4>Tác giả : {{$product->author}}</h4></td>
                     </tr>
-                    <tr>
+                    {{-- <tr>
                         <td><h5>Số lượng còn lại : {{$product->quantity}}</h5></td>
-                    </tr>
+                    </tr> --}}
                     <tr>
                 {{-- <td><h4 style="color:blue"><b>Giá : {{ number_format($product->price,0,',','.')}} vnđ</b></h4></td> --}}
                 </tr>   
@@ -23,11 +23,11 @@
                 <form action="{{route('cart.add')}}" method="GET">
                     <table>
                         <tr>
-                        <td><input type="text" name="id" value="{{$product->id}}" style="display: none;"></td>
+                        <input type="hidden" name="id" value="{{$product->id}}" style="display: none;">
+                        <td><h5>Mô tả : </h5>{{$product->description}}</td>
+                        </td>
                         </tr>
-                                                <tr>
-                        <td><input type="text" name="price" value="{{$product->price}}" style="display: none;"></td>
-                        </tr>
+                        <input type="hidden" name="price" value="{{$product->price}}" style="display: none;">
                         <tr>
                         <td><input type="number" min="1" max="{{$product->quantity}}" name="quantity"  value="1" step="1"></td>
                         </tr>
@@ -44,13 +44,13 @@
         <div class="row">
             <div class="col" style="margin-bottom: 10px;">
                 <h3 style="text-align: center;">Review Sách</h3>
+                <hr style="background-color:#079992;height: 3px;">
                 <div class="cmt">
                     <ul>
                         @foreach($comments as $key => $item)
                         <li><b><i class="far fa-user"></i>{{$user_name[$key]}} :</b> {{$item->content}}</li>
                         @endforeach
                     </ul>
-                    
                 </div>
                 <div class="row">
                 <div class="pagi">

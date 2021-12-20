@@ -13,7 +13,6 @@
     <tbody>
       
         @foreach($users as $item)
-          @if($item->id != 1)
             <tr>
               <th scope="row">{{$item->id}}</th>
               <td>{{$item->name}}</td>
@@ -21,7 +20,6 @@
               <td>{{date('d/m/y',strtotime($item->created_at))}}</td>
               <td style="text-align: center;"><a href="">Chi tiết</a></td>
             </tr>
-          @endif
         @endforeach        
     </tbody>
   </table>
