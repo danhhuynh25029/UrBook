@@ -10,6 +10,7 @@
 			      <th scope="col">ID</th>
 			      <th scope="col">Hình ảnh</th>
 			      <th scope="col">Tên</th>
+			      <th scope="col">Đơn giá</th>
 			      <th scope="col">Số lượng</th>
 			      <th scope="col">Giá</th>
 			      <th scope="col">Thao tác</th>
@@ -22,8 +23,10 @@
 			      <th scope="row">{{$key}}</th>
 			      <td><img src="{{asset($item->image)}}" alt=""></td>
 			      <td>{{$item->name}}</td>
+			      <td>{{$prices[$key]}}</td>
 			      <td><input onchange="show({{$key}},{{$prices[$key]}})"style="text-align: center;" id="quantity{{$key}}" type="number" name="" min="1" max="{{$item->quantity}}" value="{{$quantitys[$key]}}"></td>
-			      <td><b style="color:blue" id="price{{$key}}">{{number_format($total[$key],0,',','.')}}</b><b style="color: blue;"> vnđ</b></td>
+			      {{-- <td><b style="color:blue" id="price{{$key}}">{{number_format($total[$key],0,',','.')}}</b><b style="color: blue;"> vnđ</b></td> --}}
+			      <td><b style="color:blue" id="price{{$key}}">{{$total[$key]}}</b><b style="color: blue;"> vnđ</b></td>
 			      <td><a href="{{route('cart.delete',['key'=>$key])}}"><button type="button" class="btn btn-danger">Xóa</button></a></td>
 			    </tr>
 			    @endforeach
@@ -36,7 +39,7 @@
 			    <tr>
 			    	<td colspan="6">
 			    		<div style="float: right;width: 100%;">
-			    				<h7 style="display: inline;">Thành tiền : <h5 style="display: inline;" id="sum">{{number_format($s,0,',','.')}}</h5> VND<h7>
+			    				<h7 style="display: inline;">Thành tiền : <h5 style="display: inline;" id="sum">{{$s}}</h5> vnđ<h7>
 			    				<a href="{{route('home.order')}}"><button type="button" class="btn btn-primary" style="float: right;">Thanh toán</button></a>
 			    		</div>
 			    		{{-- form style="float: right;">
@@ -58,7 +61,7 @@
 		var d_price = document.getElementById(`price${key}`).innerHTML;
 		var total = parseInt(price_d)*parseInt(quantity);
 		s = parseInt(document.getElementById('sum').innerHTML);
-		s =s + (parseInt(total) - parseInt(d_price));
+		s = s + (parseInt(total) - parseInt(d_price));
 		document.getElementById(`price${key}`).innerHTML = total;
 		document.getElementById('sum').innerHTML = s;
 		var ajax = new XMLHttpRequest();

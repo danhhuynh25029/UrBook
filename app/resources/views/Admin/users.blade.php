@@ -7,7 +7,7 @@
         <th scope="col">Tên đăng nhập</th>
         <th scope="col">Email</th>
         <th scope="col">Ngày tạo<th>
-        <th scope="col">Hóa đơn</th>
+        {{-- <th scope="col">Hóa đơn</th> --}}
       </tr>
     </thead>
     <tbody>
@@ -18,7 +18,7 @@
               <td>{{$item->name}}</td>
               <td>{{ $item-> email}}</td>
               <td>{{date('d/m/y',strtotime($item->created_at))}}</td>
-              <td style="text-align: center;"><a href="">Chi tiết</a></td>
+              {{-- <td style="text-align: center;"><a href="">Chi tiết</a></td> --}}
             </tr>
         @endforeach        
     </tbody>
