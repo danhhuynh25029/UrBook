@@ -12,6 +12,7 @@ i{
 }
 .head nav a{
     color: white;
+    text-decoration: none;
 }
 /* body */
 .body{

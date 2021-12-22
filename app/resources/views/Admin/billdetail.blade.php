@@ -21,8 +21,11 @@
     </tr>
     @endforeach
     <tr >
-      <td colspan="5" style="text-align:right;">Tổng tiền : {{$total}}</td>
+      <td colspan="5" style="text-align:right;"><b>Tổng tiền : {{$total}} vnđ</b></td>
     </tr>
   </tbody>
 </table>
+<div>
+  <p><b>Lời nhắn :</b> {{$customer->note}}</p>
+</div>
 @endsection

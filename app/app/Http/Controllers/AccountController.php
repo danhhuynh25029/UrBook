@@ -10,7 +10,7 @@ class AccountController extends Controller
 {
     public function signin(Request $request){
         if($request->isMethod('get')){
-            $name = $request->cookie('name');
+            $name = $request->cookie('email');
             $password = $request->cookie('password');
             return view('Login/signin',['name'=>$name,'password'=>$password]);
         }else{

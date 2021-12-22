@@ -14,7 +14,7 @@ class ListController extends Controller
         $users = Users::all();
         $total = 0;
         $sale = Sale::all();
-        foreach($bills as $item){
+        foreach($sale as $item){
             $total += $item->total;
         }
         return view("Admin/list",[

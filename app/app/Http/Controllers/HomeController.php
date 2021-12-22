@@ -20,7 +20,7 @@ class HomeController extends Controller
     public $icon = ['fas fa-map-marker-alt','fas fa-phone-alt','fab fa-facebook-square','far fa-envelope'];
     public function homePage(Request $request){
         $cates = Category::all();
-        $products = Product::paginate(12);
+        $products = Product::paginate(8);
         $infors = Information::all();
         // Lay thong tin password name;
         $id = $request->session()->get('id');
@@ -137,20 +137,20 @@ class HomeController extends Controller
         $name = $request->name;
         $products = null;
         if($id && $sort && $name){
-            $products = Product::orderBy($s1[$sort],$s[$sort])->where([['category_id','=',$id],['name','like','%'.$request->name.'%']])->paginate(12);
+            $products = Product::orderBy($s1[$sort],$s[$sort])->where([['category_id','=',$id],['name','like','%'.$request->name.'%']])->paginate(8);
         }else if($id && $sort){
-            $products = Product::orderBy($s1[$sort],$s[$sort])->where('category_id',$id)->paginate(12);
+            $products = Product::orderBy($s1[$sort],$s[$sort])->where('category_id',$id)->paginate(8);
         }else if($id && $name){
-            $products = Product::where([['category_id','=',$id],['name','like','%'.$request->name.'%']])->paginate(12);
+            $products = Product::where([['category_id','=',$id],['name','like','%'.$request->name.'%']])->paginate(8);
         }
         else if($name && $sort){
-            $products = Product::orderBy($s1[$sort],$s[$sort])->where('name','like','%'.$request->name.'%')->paginate(12);
+            $products = Product::orderBy($s1[$sort],$s[$sort])->where('name','like','%'.$request->name.'%')->paginate(8);
         }else if($id){
-            $products = Product::where('category_id',$id)->paginate(12);
+            $products = Product::where('category_id',$id)->paginate(8);
         }else if($sort){
-             $products = Product::orderBy($s1[$sort],$s[$sort])->paginate(12); 
+             $products = Product::orderBy($s1[$sort],$s[$sort])->paginate(8); 
         }else{
-            $products = Product::where('name','like','%'.$request->name.'%')->paginate(12);
+            $products = Product::where('name','like','%'.$request->name.'%')->paginate(8);
         }
         $infors = Information::all();
         $id = $request->session()->get('id');

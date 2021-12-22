@@ -81,6 +81,7 @@ class BillController extends Controller
         if($this->check($name,$password) == null){
             return redirect()->route('signin');
         }else{
+            $customer = Customer::find($request->id);
             $bill = Bill::find($request->id);
             $bill_d = BillDetail::where('bill_id',$bill->id)->get();
             $products = array();
@@ -93,7 +94,8 @@ class BillController extends Controller
             return view('Admin/billdetail',[
                 'products'=>$products,
                 'quantity'=>$quantity,
-                'total'=>$bill->total
+                'total'=>$bill->total,
+                'customer'=>$customer
             ]);
         }
     }

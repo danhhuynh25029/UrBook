@@ -19,14 +19,15 @@
         </tr>
         <tr>
             <td colspan="2" style="text-align: left;">
-                <label>Tên đăng nhập : </label>
+                <label>Tên : </label>
                 <input id="name" name="name" class="form-control" placeholder="Tên đăng nhập" type="text" required>
             </td>
         </tr>
         <tr>
             <td colspan="2" style="text-align: left;">
                 <label>Email : </label>
-                <input id="email" name="email" class="form-control" placeholder="Email" type="email" required>
+                <input onkeyup="checkMail()" id="email" name="email" class="form-control" placeholder="Email" type="email" required>
+                <span id="m"></span>
             </td>
         </tr>
         <tr>
@@ -58,7 +59,23 @@
 </div>
 </body>
 <script type="text/javascript">
+    function checkMail(){
+         var regexEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+         var email = document.getElementById("email").value;
+         if(email.length > 0){
+         if(!email.match(regexEmail)){
+            document.getElementById('m').style.color = 'red';
+            document.getElementById('m').innerHTML = 'Vui lòng nhập đúng cấu trúc email';
+         }else{
+            document.getElementById("m").innerHTML = "";
+            c_mail = true;
+         }
+        }else{
+
+        }
+    }
     function check() {
+        
          if (document.getElementById('password').value == document.getElementById('con_password').value) {
             document.getElementById('message').style.color = 'green';
             document.getElementById('message').innerHTML = 'giống nhau';
