@@ -79,10 +79,10 @@
     </div>
     <div class="mb-3">
         @if ($product)
-        <input value="{{$product->image}}" type="file" name="image" class="form-control" aria-describedby="inputGroupFileAddon03" aria-label="Upload" required>
+        <input value="{{$product->image}}" type="file" name="image" class="form-control" aria-describedby="inputGroupFileAddon03" aria-label="Upload" >
         <img id="img" src="{{asset($product->image)}}" width="130px" height="100px">
         @else
-        <input type="file" name="image" class="form-control" aria-describedby="inputGroupFileAddon03" aria-label="Upload" required>
+        <input type="file" name="image" class="form-control" aria-describedby="inputGroupFileAddon03" aria-label="Upload">
         @endif
        
     </div>

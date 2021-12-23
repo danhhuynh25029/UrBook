@@ -1,4 +1,4 @@
-@extends('Admin.admin')
+@extends('User.profile')
 @section('content')
 <table class="table">
   <thead>
@@ -21,7 +21,7 @@
     </tr>
     @endforeach
     <tr >
-      <td colspan="5" style="text-align:right;"><b>Tổng tiền : {{$total}} vnđ</b></td>
+      {{-- <td colspan="5" style="text-align:right;"><b>Tổng tiền : {{$total}} vnđ</b></td> --}}
     </tr>
   </tbody>
 </table>

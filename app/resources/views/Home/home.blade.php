@@ -126,6 +126,8 @@
             ajax.onreadystatechange = function(){
                 if(this.status = 200 && this.readyState == 4){
                     alert("Gửi thành công");
+                    document.getElementById("email").value = "";
+                    document.getElementById("content").value = "";
                 }
             }
             ajax.open('POST',`{{route('home.feedback')}}?_token=${token}&email=${email}&content=${content}`,true);

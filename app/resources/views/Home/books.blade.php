@@ -74,6 +74,23 @@
               </div>
             </a>
         </div>
+        @else
+        <div class="col-3 item" id="book">
+            <div class="card" >
+                <img src="{{asset($item->image)}}" class="card-img-top" alt="..."  >
+                <div class="card-body">
+                    @if(strlen($item->name) > 21)
+                    <p class="name" class="card-text name">{{substr($item->name,0,18)}}...</p>
+                    @else
+                    <p class="name" class="card-text name">{{$item->name}}</p>
+                    @endif
+                    
+                    <p class="card-text price"><b>Hết hàng</b></p>
+                    <!-- <a href="#" class="card-link">Thêm vào giỏ</a>
+                    <a href="#" class="card-link">Xem chi tiết</a> -->
+                </div>
+              </div>
+        </div>
         @endif
         @endforeach
     </div>

@@ -49,7 +49,7 @@
               @endforeach
             </select>
           </form></td>
-          <td><a href="{{route('bills.find',['id'=>$item->id])}}">Chi tiết</a></td>
+          <td><a href="{{route('bills.detail',['id'=>$item->id])}}">Chi tiết</a></td>
         </tr>
       @endforeach
       

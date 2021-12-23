@@ -8,6 +8,7 @@ use App\Models\Information;
 use App\Models\Customer;
 use App\Models\Bill;
 use App\Models\BillDetail;
+use App\Models\Product;
 
 class ProfileController extends Controller
 {
@@ -96,6 +97,34 @@ class ProfileController extends Controller
             'user'=>$user,
             'icon'=>$this->icon,
             'cart'=>$cart
+        ]);
+    }
+    public function detail(Request $request){
+        $infors = Information::all();
+         $cart = $request->session()->get('cart');
+        $id = $request->session()->get('id');
+        $user = Users::find($id);
+        $c_id = $request->id;
+        $status = $request->status;
+        $customer = Customer::find($c_id);
+        $bill = Bill::where('customer_id',$customer->id)->get();
+        $bill_d = BillDetail::where('bill_id',$bill[0]->id)->get();
+        $products = array();
+            $quantity = array();
+            foreach($bill_d as $key => $item){  
+                $p = Product::find($item->product_id);
+                $products[$key] = $p;
+                $quantity[$key] = $item->quantity;
+            }
+        return view('User/detail',[
+            'infors'=>$infors,
+            'customer'=>$customer,
+            // 'bills'=>$bills,
+            'user'=>$user,
+            'icon'=>$this->icon,
+            'cart'=>$cart,
+            'products'=>$products,
+            'quantity'=>$quantity
         ]);
     }
 }

@@ -221,3 +221,7 @@ body{
 .pagi{
     margin: 0 auto;
 }
+/*profile*/
+.l:hover{
+    color : #007bff !important;
+}

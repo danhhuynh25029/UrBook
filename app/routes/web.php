@@ -59,6 +59,7 @@ Route::prefix('profile')->group(function(){
     Route::get('ordering',[ProfileController::class,'ordering'])->name('profile.ordering');
     Route::post('update',[ProfileController::class,'updateInfor'])->name('profile.update');
     Route::get('ordercompeleted',[ProfileController::class,'ordercompeleted'])->name('profile.ordercompeleted');
+    Route::get('profile.detail',[ProfileController::class,'detail'])->name('profile.detail');
 });
 Route::prefix('home/cart')->group(function(){
       Route::get('add',[CartController::class,'add'])->name('cart.add');
@@ -81,7 +82,7 @@ Route::prefix('admin')->group(function(){
 // Hoa don
 Route::prefix('admin/bills')->group(function(){
     Route::get('update',[BillController::class,'update'])->name('bills.update');
-    Route::get('find',[BillController::class,'find'])->name('bills.find');
+    Route::get('detail',[BillController::class,'detail'])->name('bills.detail');
     Route::get('findAll',[BillController::class,'findAll'])->name('bills.findAll');
 });
 // The loai sach

@@ -10,6 +10,7 @@
       <th scope="col">Số điện thoại</th>
       <th scope="col">Trạng thái</th>
       <th scope="col">Tổng tiền</th>
+      {{-- <th scope="col">Hóa đơn</th> --}}
     </tr>
   </thead>
   <tbody>
@@ -17,13 +18,14 @@
       <tr>
         <th scope="row">{{$item->id}}</th>
         <td>{{$item->fullname}}</td>
-        <td>{{$item->created_at}}</td>
+        <td>{{date('d/m/Y',strtotime($item->created_at))}}</td>
         <td>{{$item->phone_number}}</td>
         <?php 
               $status = array('0'=>'Còn chờ','1'=>'Đang đóng gói','2'=>'Đang giao','3'=>'Đã hoàn thành')
         ?>
         <td>{{$status[$item->status]}}</td>
         <td>{{$bills[$key][0]->total}}</td>
+        <td><a class="l" href="{{ route('profile.detail',['id'=>$item->id]) }}">Chi tiết</a></td>
       </tr>
     @endforeach
   </tbody>

@@ -21,8 +21,9 @@
                 <a href="{{route('managers.update',['id'=>$item->id])}}">
               <button type="button" class="btn btn-primary">Chỉnh sửa</button>
               </a>
+              @if($item->id != 1)  
                 <a href="{{route('managers.delete',['id'=>$item->id])}}"><button type="button" class="btn btn-danger">Xóa</button></a>
-                
+              @endif  
               </td>
             </tr>
         @endforeach        

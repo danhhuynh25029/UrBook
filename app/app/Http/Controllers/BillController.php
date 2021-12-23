@@ -75,7 +75,7 @@ class BillController extends Controller
             }   
         }
     }
-    public function find(Request $request){
+    public function detail(Request $request){
         $name = $request->session()->get('name');
         $password = $request->session()->get('password');
         if($this->check($name,$password) == null){
